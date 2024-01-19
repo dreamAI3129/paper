@@ -1,0 +1,1 @@
+"use strict";(function(){window.getContinent().then(function(continent){document.body.classList.add("cmp-continent-"+continent.toLowerCase())})})()

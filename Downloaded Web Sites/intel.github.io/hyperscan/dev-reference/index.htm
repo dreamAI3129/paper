@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Hyperscan 5.4 Developer’s Reference Guide &#8212; Hyperscan 5.4.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="_static/hyperscan.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="copyright" title="Copyright" href="copyright.html" />
+    <link rel="next" title="Copyright" href="copyright.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="hyperscan-version-developer-s-reference-guide">
+<h1>Hyperscan 5.4 Developer’s Reference Guide<a class="headerlink" href="#hyperscan-version-developer-s-reference-guide" title="Permalink to this heading">¶</a></h1>
+<section id="today">
+<h2>Feb 22, 2023<a class="headerlink" href="#today" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preface.html">Preface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preface.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preface.html#audience">Audience</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preface.html#conventions">Conventions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#compilation">Compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#scanning">Scanning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#tools">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#example-code">Example Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#very-quick-start">Very Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#requirements">Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compilation.html">Compiling Patterns</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#building-a-database">Building a Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#pattern-support">Pattern Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#semantics">Semantics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#instruction-set-specialization">Instruction Set Specialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#approximate-matching">Approximate matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#logical-combinations">Logical Combinations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="runtime.html">Scanning for Patterns</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="runtime.html#handling-matches">Handling Matches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtime.html#streaming-mode">Streaming Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtime.html#block-mode">Block Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtime.html#vectored-mode">Vectored Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtime.html#scratch-space">Scratch Space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtime.html#custom-allocators">Custom Allocators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="serialization.html">Serialization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html#the-runtime-library">The Runtime Library</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance Considerations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#regular-expression-constructs">Regular expression constructs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#library-usage">Library usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#block-based-matching">Block-based matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#unnecessary-databases">Unnecessary databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#allocate-scratch-ahead-of-time">Allocate scratch ahead of time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#allocate-one-scratch-space-per-scanning-context">Allocate one scratch space per scanning context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#anchored-patterns">Anchored patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#matching-everywhere">Matching everywhere</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#bounded-repeats-in-streaming-mode">Bounded repeats in streaming mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#prefer-literals">Prefer literals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#dot-all-mode">“Dot all” mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#single-match-flag">Single-match flag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#start-of-match-flag">Start of Match flag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#approximate-matching">Approximate matching</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#quick-check-hscheck">Quick Check: hscheck</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#benchmarker-hsbench">Benchmarker: hsbench</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#correctness-testing-hscollider">Correctness Testing: hscollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#debugging-hsdump">Debugging: hsdump</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#pattern-format">Pattern Format</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_constants.html">API Reference: Constants</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_constants.html#error-codes">Error Codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_constants.html#hs-expr-ext-flags">hs_expr_ext flags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_constants.html#pattern-flags">Pattern flags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_constants.html#cpu-feature-support-flags">CPU feature support flags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_constants.html#cpu-tuning-flags">CPU tuning flags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_constants.html#compile-mode-flags">Compile mode flags</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_files.html">API Reference: Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_files.html#file-hs-h">File: hs.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_files.html#file-hs-common-h">File: hs_common.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_files.html#file-hs-compile-h">File: hs_compile.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_files.html#file-hs-runtime-h">File: hs_runtime.h</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chimera.html">Chimera</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chimera.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chimera.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chimera.html#compiling-patterns">Compiling Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chimera.html#scanning-for-patterns">Scanning for Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chimera.html#api-reference-constants">API Reference: Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chimera.html#api-reference-files">API Reference: Files</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="#">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compilation.html">Compiling Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="runtime.html">Scanning for Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serialization.html">Serialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_constants.html">API Reference: Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_files.html">API Reference: Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chimera.html">Chimera</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015-2018, Intel Corporation.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

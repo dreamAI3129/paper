@@ -1,0 +1,447 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Getting Started &#8212; Hyperscan 5.4.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="_static/hyperscan.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="copyright" title="Copyright" href="copyright.html" />
+    <link rel="next" title="Compiling Patterns" href="compilation.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">¶</a></h1>
+<section id="very-quick-start">
+<h2>Very Quick Start<a class="headerlink" href="#very-quick-start" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Clone Hyperscan</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">&lt;</span><span class="n">where</span><span class="o">-</span><span class="n">you</span><span class="o">-</span><span class="n">want</span><span class="o">-</span><span class="n">hyperscan</span><span class="o">-</span><span class="n">source</span><span class="o">&gt;</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">intel</span><span class="o">/</span><span class="n">hyperscan</span>
+</pre></div>
+</div>
+</li>
+<li><p>Configure Hyperscan</p>
+<p>Ensure that you have the correct <a class="reference internal" href="#software"><span class="std std-ref">dependencies</span></a> present,
+and then:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">&lt;</span><span class="n">where</span><span class="o">-</span><span class="n">you</span><span class="o">-</span><span class="n">want</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">build</span><span class="o">-</span><span class="n">hyperscan</span><span class="o">&gt;</span>
+<span class="n">mkdir</span> <span class="o">&lt;</span><span class="n">build</span><span class="o">-</span><span class="nb">dir</span><span class="o">&gt;</span>
+<span class="n">cd</span> <span class="o">&lt;</span><span class="n">build</span><span class="o">-</span><span class="nb">dir</span><span class="o">&gt;</span>
+<span class="n">cmake</span> <span class="p">[</span><span class="o">-</span><span class="n">G</span> <span class="o">&lt;</span><span class="n">generator</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">hyperscan</span><span class="o">-</span><span class="n">source</span><span class="o">-</span><span class="n">path</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Known working generators:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Unix</span> <span class="pre">Makefiles</span></code> — make-compatible makefiles (default on Linux/FreeBSD/Mac OS X)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ninja</span></code> — <a class="reference external" href="http://martine.github.io/ninja/">Ninja</a> build files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Visual</span> <span class="pre">Studio</span> <span class="pre">15</span> <span class="pre">2017</span></code> — Visual Studio projects</p></li>
+</ul>
+</dd>
+<dt>Generators that might work include:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Xcode</span></code> — OS X Xcode projects.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Build Hyperscan</p>
+<dl class="simple">
+<dt>Depending on the generator used:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--build</span> <span class="pre">.</span></code> — will build everything</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">-j&lt;jobs&gt;</span></code> — use makefiles in parallel</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ninja</span></code> — use Ninja build</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MsBuild.exe</span></code> — use Visual Studio MsBuild</p></li>
+<li><p>etc.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Check Hyperscan</p>
+<p>Run the Hyperscan unit tests:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bin</span><span class="o">/</span><span class="n">unit</span><span class="o">-</span><span class="n">hyperscan</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading">¶</a></h2>
+<section id="hardware">
+<span id="id1"></span><h3>Hardware<a class="headerlink" href="#hardware" title="Permalink to this heading">¶</a></h3>
+<p>Hyperscan will run on x86 processors in 64-bit (Intel® 64 Architecture) and
+32-bit (IA-32 Architecture) modes.</p>
+<p>Hyperscan is a high performance software library that takes advantage of recent
+Intel architecture advances. At a minimum, support for Supplemental Streaming
+SIMD Extensions 3 (SSSE3) is required, which should be available on any modern
+x86 processor.</p>
+<p>Additionally, Hyperscan can make use of:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Intel Streaming SIMD Extensions 4.2 (SSE4.2)</p></li>
+<li><p>the POPCNT instruction</p></li>
+<li><p>Bit Manipulation Instructions (BMI, BMI2)</p></li>
+<li><p>Intel Advanced Vector Extensions 2 (Intel AVX2)</p></li>
+</ul>
+</div></blockquote>
+<p>if present.</p>
+<p>These can be determined at library compile time, see <a class="reference internal" href="#target-arch"><span class="std std-ref">Target Architecture</span></a>.</p>
+</section>
+<section id="software">
+<span id="id2"></span><h3>Software<a class="headerlink" href="#software" title="Permalink to this heading">¶</a></h3>
+<p>As a software library, Hyperscan doesn’t impose any particular runtime
+software requirements, however to build the Hyperscan library we require a
+modern C and C++ compiler – in particular, Hyperscan requires C99 and C++11
+compiler support. The supported compilers are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>GCC, v4.8.1 or higher</p></li>
+<li><p>Clang, v3.4 or higher (with libstdc++ or libc++)</p></li>
+<li><p>Intel C++ Compiler v15 or higher</p></li>
+<li><p>Visual C++ 2017 Build Tools</p></li>
+</ul>
+</div></blockquote>
+<p>Examples of operating systems that Hyperscan is known to work on include:</p>
+<p>Linux:</p>
+<ul class="simple">
+<li><p>Ubuntu 14.04 LTS or newer</p></li>
+<li><p>RedHat/CentOS 7 or newer</p></li>
+</ul>
+<p>FreeBSD:</p>
+<ul class="simple">
+<li><p>10.0 or newer</p></li>
+</ul>
+<p>Windows:</p>
+<ul class="simple">
+<li><p>8 or newer</p></li>
+</ul>
+<p>Mac OS X:</p>
+<ul class="simple">
+<li><p>10.8 or newer, using XCode/Clang</p></li>
+</ul>
+<p>Hyperscan <em>may</em> compile and run on other platforms, but there is no guarantee.
+We currently have experimental support for Windows using Intel C++ Compiler
+or Visual Studio 2017.</p>
+<p>In addition, the following software is required for compiling the Hyperscan library:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 53%" />
+<col style="width: 11%" />
+<col style="width: 37%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dependency</p></th>
+<th class="head"><p>Version</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="http://www.cmake.org/">CMake</a></p></td>
+<td><p>&gt;=2.8.11</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://www.colm.net/open-source/ragel/">Ragel</a></p></td>
+<td><p>6.9</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://www.python.org/">Python</a></p></td>
+<td><p>2.7</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://boost.org/">Boost</a></p></td>
+<td><p>&gt;=1.57</p></td>
+<td><p>Boost headers required</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://tcpdump.org">Pcap</a></p></td>
+<td><p>&gt;=0.8</p></td>
+<td><p>Optional: needed for example code only</p></td>
+</tr>
+</tbody>
+</table>
+<p>Most of these dependencies can be provided by the package manager on the build
+system (e.g. Debian/Ubuntu/RedHat packages, FreeBSD ports, etc). However,
+ensure that the correct version is present. As for Windows, in order to have
+Ragel, you may use Cygwin to build it from source.</p>
+<section id="boost-headers">
+<h4>Boost Headers<a class="headerlink" href="#boost-headers" title="Permalink to this heading">¶</a></h4>
+<p>Compiling Hyperscan depends on a recent version of the Boost C++ header
+library. If the Boost libraries are installed on the build machine in the
+usual paths, CMake will find them. If the Boost libraries are not installed,
+the location of the Boost source tree can be specified during the CMake
+configuration step using the <code class="docutils literal notranslate"><span class="pre">BOOST_ROOT</span></code> variable (described below).</p>
+<p>Another alternative is to put a copy of (or a symlink to) the boost
+subdirectory in <code class="docutils literal notranslate"><span class="pre">&lt;hyperscan-source-path&gt;/include/boost</span></code>.</p>
+<p>For example: for the Boost-1.59.0 release:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="n">boost_1_59_0</span><span class="o">/</span><span class="n">boost</span> <span class="o">&lt;</span><span class="n">hyperscan</span><span class="o">-</span><span class="n">source</span><span class="o">-</span><span class="n">path</span><span class="o">&gt;/</span><span class="n">include</span><span class="o">/</span><span class="n">boost</span>
+</pre></div>
+</div>
+<p>As Hyperscan uses the header-only parts of Boost, it is not necessary to
+compile the Boost libraries.</p>
+</section>
+</section>
+<section id="cmake-configuration">
+<h3>CMake Configuration<a class="headerlink" href="#cmake-configuration" title="Permalink to this heading">¶</a></h3>
+<p>When CMake is invoked, it generates build files using the given options.
+Options are passed to CMake in the form <code class="docutils literal notranslate"><span class="pre">-D&lt;variable</span> <span class="pre">name&gt;=&lt;value&gt;</span></code>.
+Common options for CMake include:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 68%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CMAKE_C_COMPILER</p></td>
+<td><p>C compiler to use. Default is /usr/bin/cc.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CMAKE_CXX_COMPILER</p></td>
+<td><p>C++ compiler to use. Default is /usr/bin/c++.</p></td>
+</tr>
+<tr class="row-even"><td><p>CMAKE_INSTALL_PREFIX</p></td>
+<td><p>Install directory for <code class="docutils literal notranslate"><span class="pre">install</span></code> target</p></td>
+</tr>
+<tr class="row-odd"><td><p>CMAKE_BUILD_TYPE</p></td>
+<td><p>Define which kind of build to generate.
+Valid options are Debug, Release, RelWithDebInfo,
+and MinSizeRel. Default is RelWithDebInfo.</p></td>
+</tr>
+<tr class="row-even"><td><p>BUILD_SHARED_LIBS</p></td>
+<td><p>Build Hyperscan as a shared library instead of
+the default static library.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BUILD_STATIC_AND_SHARED</p></td>
+<td><p>Build both static and shared Hyperscan libs.
+Default off.</p></td>
+</tr>
+<tr class="row-even"><td><p>BOOST_ROOT</p></td>
+<td><p>Location of Boost source tree.</p></td>
+</tr>
+<tr class="row-odd"><td><p>DEBUG_OUTPUT</p></td>
+<td><p>Enable very verbose debug output. Default off.</p></td>
+</tr>
+<tr class="row-even"><td><p>FAT_RUNTIME</p></td>
+<td><p>Build the <a class="reference internal" href="#fat-runtime"><span class="std std-ref">fat runtime</span></a>. Default
+true on Linux, not available elsewhere.</p></td>
+</tr>
+</tbody>
+</table>
+<p>For example, to generate a <code class="docutils literal notranslate"><span class="pre">Debug</span></code> build:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">&lt;</span><span class="n">build</span><span class="o">-</span><span class="nb">dir</span><span class="o">&gt;</span>
+<span class="n">cmake</span> <span class="o">-</span><span class="n">DCMAKE_BUILD_TYPE</span><span class="o">=</span><span class="n">Debug</span> <span class="o">&lt;</span><span class="n">hyperscan</span><span class="o">-</span><span class="n">source</span><span class="o">-</span><span class="n">path</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<section id="build-type">
+<h4>Build Type<a class="headerlink" href="#build-type" title="Permalink to this heading">¶</a></h4>
+<p>CMake determines a number of features for a build based on the Build Type.
+Hyperscan defaults to <code class="docutils literal notranslate"><span class="pre">RelWithDebInfo</span></code>, i.e. “release with debugging
+information”. This is a performance optimized build without runtime assertions
+but with debug symbols enabled.</p>
+<p>The other types of builds are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Release</span></code>: as above, but without debug symbols</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MinSizeRel</span></code>: a stripped release build</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Debug</span></code>: used when developing Hyperscan. Includes runtime assertions
+(which has a large impact on runtime performance), and will also enable
+some other build features like building internal unit
+tests.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="target-architecture">
+<span id="target-arch"></span><h4>Target Architecture<a class="headerlink" href="#target-architecture" title="Permalink to this heading">¶</a></h4>
+<p>Unless using the <a class="reference internal" href="#fat-runtime"><span class="std std-ref">fat runtime</span></a>, by default Hyperscan will be
+compiled to target the instruction set of the processor of the machine that
+being used for compilation. This is done via the use of <code class="docutils literal notranslate"><span class="pre">-march=native</span></code>. The
+result of this means that a library built on one machine may not work on a
+different machine if they differ in supported instruction subsets.</p>
+<p>To override the use of <code class="docutils literal notranslate"><span class="pre">-march=native</span></code>, set appropriate flags for the
+compiler in <code class="docutils literal notranslate"><span class="pre">CFLAGS</span></code> and <code class="docutils literal notranslate"><span class="pre">CXXFLAGS</span></code> environment variables before invoking
+CMake, or <code class="docutils literal notranslate"><span class="pre">CMAKE_C_FLAGS</span></code> and <code class="docutils literal notranslate"><span class="pre">CMAKE_CXX_FLAGS</span></code> on the CMake command line. For
+example, to set the instruction subsets up to <code class="docutils literal notranslate"><span class="pre">SSE4.2</span></code> using GCC 4.8:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">DCMAKE_C_FLAGS</span><span class="o">=</span><span class="s2">&quot;-march=corei7&quot;</span> \
+  <span class="o">-</span><span class="n">DCMAKE_CXX_FLAGS</span><span class="o">=</span><span class="s2">&quot;-march=corei7&quot;</span> <span class="o">&lt;</span><span class="n">hyperscan</span><span class="o">-</span><span class="n">source</span><span class="o">-</span><span class="n">path</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>For more information, refer to <a class="reference internal" href="compilation.html#instr-specialization"><span class="std std-ref">Instruction Set Specialization</span></a>.</p>
+</section>
+<section id="fat-runtime">
+<span id="id3"></span><h4>Fat Runtime<a class="headerlink" href="#fat-runtime" title="Permalink to this heading">¶</a></h4>
+<p>A feature introduced in Hyperscan v4.4 is the ability for the Hyperscan
+library to dispatch the most appropriate runtime code for the host processor.
+This feature is called the “fat runtime”, as a single Hyperscan library
+contains multiple copies of the runtime code for different instruction sets.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The fat runtime feature is only available on Linux. Release builds of
+Hyperscan will default to having the fat runtime enabled where supported.</p>
+</div>
+<p>When building the library with the fat runtime, the Hyperscan runtime code
+will be compiled multiple times for these different instruction sets, and
+these compiled objects are combined into one library. There are no changes to
+how user applications are built against this library.</p>
+<p>When applications are executed, the correct version of the runtime is selected
+for the machine that it is running on. This is done using a <code class="docutils literal notranslate"><span class="pre">CPUID</span></code> check
+for the presence of the instruction set, and then an indirect function is
+resolved so that the right version of each API function is used. There is no
+impact on function call performance, as this check and resolution is performed
+by the ELF loader once when the binary is loaded.</p>
+<p>If the Hyperscan library is used on x86 systems without <code class="docutils literal notranslate"><span class="pre">SSSE3</span></code>, the runtime
+API functions will resolve to functions that return <a class="reference internal" href="api_constants.html#c.HS_ARCH_ERROR" title="HS_ARCH_ERROR"><code class="xref c c-member docutils literal notranslate"><span class="pre">HS_ARCH_ERROR</span></code></a>
+instead of potentially executing illegal instructions. The API function
+<a class="reference internal" href="api_files.html#c.hs_valid_platform" title="hs_valid_platform"><code class="xref c c-func docutils literal notranslate"><span class="pre">hs_valid_platform()</span></code></a> can be used by application writers to determine if
+the current platform is supported by Hyperscan.</p>
+<p>As of this release, the variants of the runtime that are built, and the CPU
+capability that is required, are the following:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 45%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Variant</p></th>
+<th class="head"><p>CPU Feature Flag(s) Required</p></th>
+<th class="head"><p>gcc arch flag</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Core 2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SSSE3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-march=core2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Core i7</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SSE4_2</span></code> and <code class="docutils literal notranslate"><span class="pre">POPCNT</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-march=corei7</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>AVX 2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AVX2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-march=core-avx2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>AVX 512</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AVX512BW</span></code> (see note below)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-march=skylake-avx512</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>AVX 512 VBMI</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AVX512VBMI</span></code> (see note below)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-march=icelake-server</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Hyperscan v4.5 adds support for AVX-512 instructions - in particular the
+<code class="docutils literal notranslate"><span class="pre">AVX-512BW</span></code> instruction set that was introduced on Intel “Skylake” Xeon
+processors - however the AVX-512 runtime variant is <strong>not</strong> enabled by
+default in fat runtime builds as not all toolchains support AVX-512
+instruction sets. To build an AVX-512 runtime, the CMake variable
+<code class="docutils literal notranslate"><span class="pre">BUILD_AVX512</span></code> must be enabled manually during configuration. For
+example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">DBUILD_AVX512</span><span class="o">=</span><span class="n">on</span> <span class="o">&lt;...&gt;</span>
+</pre></div>
+</div>
+<p>Hyperscan v5.3 adds support for AVX512VBMI instructions - in particular the
+<code class="docutils literal notranslate"><span class="pre">AVX512VBMI</span></code> instruction set that was introduced on Intel “Icelake” Xeon
+processors - however the AVX512VBMI runtime variant is <strong>not</strong> enabled by
+default in fat runtime builds as not all toolchains support AVX512VBMI
+instruction sets. To build an AVX512VBMI runtime, the CMake variable
+<code class="docutils literal notranslate"><span class="pre">BUILD_AVX512VBMI</span></code> must be enabled manually during configuration. For
+example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">DBUILD_AVX512VBMI</span><span class="o">=</span><span class="n">on</span> <span class="o">&lt;...&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>As the fat runtime requires compiler, libc, and binutils support, at this time
+it will only be enabled for Linux builds where the compiler supports the
+<a class="reference external" href="https://gcc.gnu.org/onlinedocs/gcc/Common-Function-Attributes.html#index-indirect-functions-3321">indirect function “ifunc” function attribute</a>.</p>
+<p>This attribute should be available on all supported versions of GCC, and
+recent versions of Clang and ICC. There is currently no operating system
+support for this feature on non-Linux systems.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#very-quick-start">Very Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compilation.html">Compiling Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="runtime.html">Scanning for Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serialization.html">Serialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_constants.html">API Reference: Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_files.html">API Reference: Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chimera.html">Chimera</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015-2018, Intel Corporation.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

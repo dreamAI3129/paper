@@ -1,0 +1,1 @@
+if(typeof window.initBlock==='undefined'){function initBlock(blockName='',selector='',cb){if(window.acf){window.acf.addAction('render_block_preview',function(el,block){const acfBlockName=blockName.split(/@|\//).filter(e=>!!e).join('--');if(block.name==='acf/'+acfBlockName){cb(el[0])}})}else{document.querySelectorAll(selector).forEach((el)=>cb(el))}}}

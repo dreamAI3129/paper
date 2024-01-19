@@ -1,0 +1,652 @@
+Uri: https://docs.snort.org/
+File Name: C:\Downloaded Web Sites\docs.snort.org\index.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/ayu-highlight.css
+File Name: C:\Downloaded Web Sites\docs.snort.org\ayu-highlight.css
+Content Type: text/css
+
+Uri: https://docs.snort.org/book.js
+File Name: C:\Downloaded Web Sites\docs.snort.org\book.js
+Content Type: application/javascript
+
+Uri: https://docs.snort.org/clipboard.min.js
+File Name: C:\Downloaded Web Sites\docs.snort.org\clipboard.min.js
+Content Type: application/javascript
+
+Uri: https://docs.snort.org/css/chrome.css
+File Name: C:\Downloaded Web Sites\docs.snort.org\css\chrome.css
+Content Type: text/css
+
+Uri: https://docs.snort.org/css/general.css
+File Name: C:\Downloaded Web Sites\docs.snort.org\css\general.css
+Content Type: text/css
+
+Uri: https://docs.snort.org/css/print.css
+File Name: C:\Downloaded Web Sites\docs.snort.org\css\print.css
+Content Type: text/css
+
+Uri: https://docs.snort.org/css/variables.css
+File Name: C:\Downloaded Web Sites\docs.snort.org\css\variables.css
+Content Type: text/css
+
+Uri: https://docs.snort.org/elasticlunr.min.js
+File Name: C:\Downloaded Web Sites\docs.snort.org\elasticlunr.min.js
+Content Type: application/javascript
+
+Uri: https://docs.snort.org/favicon.png
+File Name: C:\Downloaded Web Sites\docs.snort.org\favicon.png
+Content Type: image/png
+
+Uri: https://docs.snort.org/favicon.svg
+File Name: C:\Downloaded Web Sites\docs.snort.org\favicon.svg
+Content Type: image/svg+xml
+
+Uri: https://docs.snort.org/FontAwesome/css/font-awesome.css
+File Name: C:\Downloaded Web Sites\docs.snort.org\FontAwesome\css\font-awesome.css
+Content Type: text/css
+
+Uri: https://docs.snort.org/FontAwesome/fonts/fontawesome-webfont.eot?
+File Name: C:\Downloaded Web Sites\docs.snort.org\FontAwesome\fonts\fontawesome-webfont-1.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://docs.snort.org/FontAwesome/fonts/fontawesome-webfont.eot?v=4.7.0
+File Name: C:\Downloaded Web Sites\docs.snort.org\FontAwesome\fonts\fontawesome-webfont.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://docs.snort.org/FontAwesome/fonts/fontawesome-webfont.svg?v=4.7.0
+File Name: C:\Downloaded Web Sites\docs.snort.org\FontAwesome\fonts\fontawesome-webfont.svg
+Content Type: image/svg+xml
+
+Uri: https://docs.snort.org/FontAwesome/fonts/fontawesome-webfont.ttf?v=4.7.0
+File Name: C:\Downloaded Web Sites\docs.snort.org\FontAwesome\fonts\fontawesome-webfont.ttf
+Content Type: font/ttf
+
+Uri: https://docs.snort.org/FontAwesome/fonts/fontawesome-webfont.woff2?v=4.7.0
+File Name: C:\Downloaded Web Sites\docs.snort.org\FontAwesome\fonts\fontawesome-webfont.woff2
+Content Type: font/woff2
+
+Uri: https://docs.snort.org/FontAwesome/fonts/fontawesome-webfont.woff?v=4.7.0
+File Name: C:\Downloaded Web Sites\docs.snort.org\FontAwesome\fonts\fontawesome-webfont.woff
+Content Type: font/woff
+
+Uri: https://docs.snort.org/fonts/fonts.css
+File Name: C:\Downloaded Web Sites\docs.snort.org\fonts\fonts.css
+Content Type: text/css
+
+Uri: https://docs.snort.org/fonts/open-sans-v17-all-charsets-300.woff2
+File Name: C:\Downloaded Web Sites\docs.snort.org\fonts\open-sans-v17-all-charsets-300.woff2
+Content Type: font/woff2
+
+Uri: https://docs.snort.org/fonts/open-sans-v17-all-charsets-300italic.woff2
+File Name: C:\Downloaded Web Sites\docs.snort.org\fonts\open-sans-v17-all-charsets-300italic.woff2
+Content Type: font/woff2
+
+Uri: https://docs.snort.org/fonts/open-sans-v17-all-charsets-600.woff2
+File Name: C:\Downloaded Web Sites\docs.snort.org\fonts\open-sans-v17-all-charsets-600.woff2
+Content Type: font/woff2
+
+Uri: https://docs.snort.org/fonts/open-sans-v17-all-charsets-600italic.woff2
+File Name: C:\Downloaded Web Sites\docs.snort.org\fonts\open-sans-v17-all-charsets-600italic.woff2
+Content Type: font/woff2
+
+Uri: https://docs.snort.org/fonts/open-sans-v17-all-charsets-700.woff2
+File Name: C:\Downloaded Web Sites\docs.snort.org\fonts\open-sans-v17-all-charsets-700.woff2
+Content Type: font/woff2
+
+Uri: https://docs.snort.org/fonts/open-sans-v17-all-charsets-700italic.woff2
+File Name: C:\Downloaded Web Sites\docs.snort.org\fonts\open-sans-v17-all-charsets-700italic.woff2
+Content Type: font/woff2
+
+Uri: https://docs.snort.org/fonts/open-sans-v17-all-charsets-800.woff2
+File Name: C:\Downloaded Web Sites\docs.snort.org\fonts\open-sans-v17-all-charsets-800.woff2
+Content Type: font/woff2
+
+Uri: https://docs.snort.org/fonts/open-sans-v17-all-charsets-800italic.woff2
+File Name: C:\Downloaded Web Sites\docs.snort.org\fonts\open-sans-v17-all-charsets-800italic.woff2
+Content Type: font/woff2
+
+Uri: https://docs.snort.org/fonts/open-sans-v17-all-charsets-italic.woff2
+File Name: C:\Downloaded Web Sites\docs.snort.org\fonts\open-sans-v17-all-charsets-italic.woff2
+Content Type: font/woff2
+
+Uri: https://docs.snort.org/fonts/open-sans-v17-all-charsets-regular.woff2
+File Name: C:\Downloaded Web Sites\docs.snort.org\fonts\open-sans-v17-all-charsets-regular.woff2
+Content Type: font/woff2
+
+Uri: https://docs.snort.org/fonts/source-code-pro-v11-all-charsets-500.woff2
+File Name: C:\Downloaded Web Sites\docs.snort.org\fonts\source-code-pro-v11-all-charsets-500.woff2
+Content Type: font/woff2
+
+Uri: https://docs.snort.org/highlight.css
+File Name: C:\Downloaded Web Sites\docs.snort.org\highlight.css
+Content Type: text/css
+
+Uri: https://docs.snort.org/highlight.js
+File Name: C:\Downloaded Web Sites\docs.snort.org\highlight.js
+Content Type: application/javascript
+
+Uri: https://docs.snort.org/intro
+File Name: C:\Downloaded Web Sites\docs.snort.org\intro.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/mark.min.js
+File Name: C:\Downloaded Web Sites\docs.snort.org\mark.min.js
+Content Type: application/javascript
+
+Uri: https://docs.snort.org/misc/shared-object-rules
+File Name: C:\Downloaded Web Sites\docs.snort.org\misc\shared-object-rules.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/pics/Snort-3-logo_v.png
+File Name: C:\Downloaded Web Sites\docs.snort.org\pics\Snort-3-logo_v.png
+Content Type: image/png
+
+Uri: https://docs.snort.org/print
+File Name: C:\Downloaded Web Sites\docs.snort.org\print.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\index.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/headers/
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\headers\index.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/headers/actions
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\headers\actions.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/headers/directions
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\headers\directions.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/headers/file_id_rules
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\headers\file_id_rules.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/headers/file_rules
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\headers\file_rules.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/headers/ips
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\headers\ips.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/headers/new_header_types
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\headers\new_header_types.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/headers/ports
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\headers\ports.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/headers/protocols
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\headers\protocols.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/headers/service_rules
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\headers\service_rules.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\index.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/general/
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\general\index.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/general/classtype
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\general\classtype.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/general/file_meta
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\general\file_meta.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/general/gid
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\general\gid.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/general/metadata
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\general\metadata.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/general/msg
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\general\msg.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/general/priority
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\general\priority.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/general/reference
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\general\reference.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/general/rem
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\general\rem.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/general/rev
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\general\rev.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/general/service
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\general\service.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/general/sid
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\general\sid.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/key
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\key.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/non_payload/
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\non_payload\index.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/non_payload/ack
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\non_payload\ack.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/non_payload/file_type
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\non_payload\file_type.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/non_payload/flags
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\non_payload\flags.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/non_payload/flow
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\non_payload\flow.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/non_payload/flowbits
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\non_payload\flowbits.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/non_payload/fragbits
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\non_payload\fragbits.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/non_payload/fragoffset
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\non_payload\fragoffset.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/non_payload/icmp_id
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\non_payload\icmp_id.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/non_payload/icmp_seq
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\non_payload\icmp_seq.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/non_payload/icode
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\non_payload\icode.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/non_payload/id
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\non_payload\id.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/non_payload/ipopts
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\non_payload\ipopts.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/non_payload/ip_proto
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\non_payload\ip_proto.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/non_payload/itype
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\non_payload\itype.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/non_payload/rpc
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\non_payload\rpc.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/non_payload/seq
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\non_payload\seq.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/non_payload/stream_reassemble
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\non_payload\stream_reassemble.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/non_payload/stream_size
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\non_payload\stream_size.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/non_payload/tos
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\non_payload\tos.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/non_payload/ttl
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\non_payload\ttl.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/non_payload/window
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\non_payload\window.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\index.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/base64
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\base64.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/ber
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\ber.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/bufferlen
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\bufferlen.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/byte_extract
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\byte_extract.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/byte_jump
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\byte_jump.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/byte_math
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\byte_math.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/byte_test
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\byte_test.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/cip
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\cip.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/content
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\content.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/cvs
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\cvs.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/dce
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\dce.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/dnp3
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\dnp3.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/dsize
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\dsize.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/fast_pattern
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\fast_pattern.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/file_data
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\file_data.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/gtp
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\gtp.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/hash
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\hash.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/http/
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\http\index.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/http/body
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\http\body.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/http/cookie
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\http\cookie.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/http/header
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\http\header.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/http/header_test
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\http\header_test.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/http/method
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\http\method.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/http/num_cookies
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\http\num_cookies.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/http/num_headers
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\http\num_headers.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/http/num_trailers
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\http\num_trailers.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/http/param
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\http\param.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/http/raw_req-raw_status
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\http\raw_req-raw_status.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/http/req_resp_detection
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\http\req_resp_detection.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/http/stat_code
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\http\stat_code.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/http/stat_msg
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\http\stat_msg.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/http/trailer
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\http\trailer.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/http/trailer_test
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\http\trailer_test.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/http/true_ip
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\http\true_ip.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/http/uri
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\http\uri.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/http/version
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\http\version.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/http/version_match
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\http\version_match.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/iec104
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\iec104.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/isdataat
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\isdataat.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/js_data
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\js_data.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/mms
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\mms.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/modbus
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\modbus.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/nocase
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\nocase.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/oddw
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\oddw.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/pcre
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\pcre.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/pkt_data
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\pkt_data.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/raw_data
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\raw_data.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/regex
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\regex.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/s7commplus
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\s7commplus.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/sd_pattern
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\sd_pattern.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/sip
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\sip.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/ssl
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\ssl.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/payload/vba_data
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\payload\vba_data.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/post/
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\post\index.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/post/detection_filter
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\post\detection_filter.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/post/replace
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\post\replace.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/rules/options/post/tag
+File Name: C:\Downloaded Web Sites\docs.snort.org\rules\options\post\tag.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/searcher.js
+File Name: C:\Downloaded Web Sites\docs.snort.org\searcher.js
+Content Type: application/javascript
+
+Uri: https://docs.snort.org/start/
+File Name: C:\Downloaded Web Sites\docs.snort.org\start\index.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/start/configuration
+File Name: C:\Downloaded Web Sites\docs.snort.org\start\configuration.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/start/help
+File Name: C:\Downloaded Web Sites\docs.snort.org\start\help.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/start/inspection
+File Name: C:\Downloaded Web Sites\docs.snort.org\start\inspection.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/start/installation
+File Name: C:\Downloaded Web Sites\docs.snort.org\start\installation.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/start/rules
+File Name: C:\Downloaded Web Sites\docs.snort.org\start\rules.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/start/running
+File Name: C:\Downloaded Web Sites\docs.snort.org\start\running.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/start/tracing
+File Name: C:\Downloaded Web Sites\docs.snort.org\start\tracing.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/start/tweaks_scripts
+File Name: C:\Downloaded Web Sites\docs.snort.org\start\tweaks_scripts.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/start/wizard_binder
+File Name: C:\Downloaded Web Sites\docs.snort.org\start\wizard_binder.htm
+Content Type: text/html
+
+Uri: https://docs.snort.org/tomorrow-night.css
+File Name: C:\Downloaded Web Sites\docs.snort.org\tomorrow-night.css
+Content Type: text/css
+
+Uri: https://docs.snort.org/welcome
+File Name: C:\Downloaded Web Sites\docs.snort.org\welcome.htm
+Content Type: text/html
+
+Uri: https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap
+File Name: C:\Downloaded Web Sites\docs.snort.org\css2
+Content Type: text/css
+
+Uri: https://fonts.gstatic.com/s/nunitosans/v15/pe1kMImSLYBIv1o4X1M8cce4OdVisMz5nZRqy6cmmmU3t2FQWEAEOvV9wNvrwlNstMKW3Y6K5WMwXeVy3GboJ0kTHmpR8FUg.ttf
+File Name: C:\Downloaded Web Sites\docs.snort.org\s\nunitosans\v15\pe1kMImSLYBIv1o4X1M8cce4OdVisMz5nZRqy6cmmmU3t2FQWEAEOvV9wNvrwlNstMKW3Y6K5WMwXeVy3GboJ0kTHmpR8FUg.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/nunitosans/v15/pe1kMImSLYBIv1o4X1M8cce4OdVisMz5nZRqy6cmmmU3t2FQWEAEOvV9wNvrwlNstMKW3Y6K5WMwXeVy3GboJ0kTHmqP91Ug.ttf
+File Name: C:\Downloaded Web Sites\docs.snort.org\s\nunitosans\v15\pe1kMImSLYBIv1o4X1M8cce4OdVisMz5nZRqy6cmmmU3t2FQWEAEOvV9wNvrwlNstMKW3Y6K5WMwXeVy3GboJ0kTHmqP91Ug.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/nunitosans/v15/pe1kMImSLYBIv1o4X1M8cce4OdVisMz5nZRqy6cmmmU3t2FQWEAEOvV9wNvrwlNstMKW3Y6K5WMwXeVy3GboJ0kTHmrR91Ug.ttf
+File Name: C:\Downloaded Web Sites\docs.snort.org\s\nunitosans\v15\pe1kMImSLYBIv1o4X1M8cce4OdVisMz5nZRqy6cmmmU3t2FQWEAEOvV9wNvrwlNstMKW3Y6K5WMwXeVy3GboJ0kTHmrR91Ug.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/nunitosans/v15/pe1mMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfGWVpNn64CL7U8upHZIbMV51Q42ptCp5F5bxqqtQ1yiU4G1ilntA.ttf
+File Name: C:\Downloaded Web Sites\docs.snort.org\s\nunitosans\v15\pe1mMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfGWVpNn64CL7U8upHZIbMV51Q42ptCp5F5bxqqtQ1yiU4G1ilntA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/nunitosans/v15/pe1mMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfGWVpNn64CL7U8upHZIbMV51Q42ptCp5F5bxqqtQ1yiU4GCC5ntA.ttf
+File Name: C:\Downloaded Web Sites\docs.snort.org\s\nunitosans\v15\pe1mMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfGWVpNn64CL7U8upHZIbMV51Q42ptCp5F5bxqqtQ1yiU4GCC5ntA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/nunitosans/v15/pe1mMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfGWVpNn64CL7U8upHZIbMV51Q42ptCp5F5bxqqtQ1yiU4GiClntA.ttf
+File Name: C:\Downloaded Web Sites\docs.snort.org\s\nunitosans\v15\pe1mMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfGWVpNn64CL7U8upHZIbMV51Q42ptCp5F5bxqqtQ1yiU4GiClntA.ttf
+Content Type: font/ttf
+
+Uri: https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317
+File Name: C:\Downloaded Web Sites\docs.snort.org\beacon.min.js\v84a3a4012de94ce1a686ba8c167c359c1696973893317
+Content Type: text/javascript
+

@@ -1,0 +1,7 @@
+try{
+const clearCache=(event)=>{event.preventDefault();const options=document.querySelectorAll('input[name="acf[BWZ_Back_Office_Clear_Cache_Settingscache_options][]"]');const selectedOptions=[...options].filter((option)=>option.checked).map((option)=>option.value);if(selectedOptions.length===0){return}
+const button=event.target;const buttonLabel=button.innerHTML;button.disabled=!0;button.innerHTML='Clearing...';const data={action:'bwz_back_office_clear_cache_ajax',data:{options:selectedOptions,},nonce:clear_cache_ajax_object.nonce,};jQuery.ajax({url:ajaxurl,type:'POST',data,success:function(response){if(response.success===!1){console.error(response.message);button.innerHTML='Error during clearing cache (Check console)';return}
+console.log(response.message);button.innerHTML='Cache cleared (Wait 1 minute)';setTimeout(()=>{button.innerHTML=buttonLabel;button.disabled=!1},60*1000)},error:function(error){console.error(error.message);button.innerHTML='Error something happened (Check console)'},})};const bindEvents=()=>{const clearCacheButton=document.getElementById('bwz-clear-cache-button');if(!clearCacheButton){return}
+clearCacheButton.addEventListener('click',clearCache)};const init=()=>{const findModule=document.getElementById('acf-BWZ_Back_Office_Cf_Pre_Cache_Settings');if(!findModule){return}
+bindEvents();console.log('BWZ Admin: Initialized Clear Cache Module.')};init()
+}catch(e){console.error("An error has occurred. [ File: https://thectoclub.com/wp-content/plugins/bwz-back-office/includes/clear-cache/clear-cache.js ] [ "+e.stack+" ]");}

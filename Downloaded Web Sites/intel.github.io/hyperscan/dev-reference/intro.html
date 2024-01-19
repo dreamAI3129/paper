@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Introduction &#8212; Hyperscan 5.4.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="_static/hyperscan.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="copyright" title="Copyright" href="copyright.html" />
+    <link rel="next" title="Getting Started" href="getting_started.html" />
+    <link rel="prev" title="Preface" href="preface.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="introduction">
+<span id="intro"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h1>
+<p>Hyperscan is a software regular expression matching engine designed with
+high performance and flexibility in mind. It is implemented as a library that
+exposes a straightforward C API.</p>
+<p>The Hyperscan API itself is composed of two major components:</p>
+<section id="compilation">
+<h2>Compilation<a class="headerlink" href="#compilation" title="Permalink to this heading">¶</a></h2>
+<p>These functions take a group of regular expressions, along with identifiers and
+option flags, and compile them into an immutable database that can be used by
+the Hyperscan scanning API. This compilation process performs considerable
+analysis and optimization work in order to build a database that will match the
+given expressions efficiently.</p>
+<p>If a pattern cannot be built into a database for any reason (such as the use of
+an unsupported expression construct, or the overflowing of a resource limit),
+an error will be returned by the pattern compiler.</p>
+<p>Compiled databases can be serialized and relocated, so that they can be stored
+to disk or moved between hosts. They can also be targeted to particular
+platform features (for example, the use of Intel® Advanced Vector Extensions
+2 (Intel® AVX2) instructions).</p>
+<p>See <a class="reference internal" href="compilation.html#compilation"><span class="std std-ref">Compiling Patterns</span></a> for more detail.</p>
+</section>
+<section id="scanning">
+<h2>Scanning<a class="headerlink" href="#scanning" title="Permalink to this heading">¶</a></h2>
+<p>Once a Hyperscan database has been created, it can be used to scan data in
+memory. Hyperscan provides several scanning modes, depending on whether the
+data to be scanned is available as a single contiguous block, whether it is
+distributed amongst several blocks in memory at the same time, or whether it is
+to be scanned as a sequence of blocks in a stream.</p>
+<p>Matches are delivered to the application via a user-supplied callback function
+that is called synchronously for each match.</p>
+<p>For a given database, Hyperscan provides several guarantees:</p>
+<ul class="simple">
+<li><p>No memory allocations occur at runtime with the exception of two
+fixed-size allocations, both of which should be done ahead of time for
+performance-critical applications:</p>
+<ul>
+<li><p><strong>Scratch space</strong>: temporary memory used for internal data at scan time.
+Structures in scratch space do not persist beyond the end of a single scan
+call.</p></li>
+<li><p><strong>Stream state</strong>: in streaming mode only, some state space is required to
+store data that persists between scan calls for each stream. This allows
+Hyperscan to track matches that span multiple blocks of data.</p></li>
+</ul>
+</li>
+<li><p>The sizes of the scratch space and stream state (in streaming mode) required
+for a given database are fixed and determined at database compile time. This
+means that the memory requirements of the application are known ahead of
+time, and these structures can be pre-allocated if required for performance
+reasons.</p></li>
+<li><p>Any pattern that has successfully been compiled by the Hyperscan compiler can
+be scanned against any input. There are no internal resource limits or other
+limitations at runtime that could cause a scan call to return an error.</p></li>
+</ul>
+<p>See <a class="reference internal" href="runtime.html#runtime"><span class="std std-ref">Scanning for Patterns</span></a> for more detail.</p>
+</section>
+<section id="tools">
+<h2>Tools<a class="headerlink" href="#tools" title="Permalink to this heading">¶</a></h2>
+<p>Some utilities for testing and benchmarking Hyperscan are included with the
+library. See <a class="reference internal" href="tools.html#tools"><span class="std std-ref">Tools</span></a> for more information.</p>
+</section>
+<section id="example-code">
+<h2>Example Code<a class="headerlink" href="#example-code" title="Permalink to this heading">¶</a></h2>
+<p>Some simple example code demonstrating the use of the Hyperscan API is
+available in the <code class="docutils literal notranslate"><span class="pre">examples/</span></code> subdirectory of the Hyperscan distribution.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preface.html">Preface</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#compilation">Compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scanning">Scanning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tools">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-code">Example Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compilation.html">Compiling Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="runtime.html">Scanning for Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serialization.html">Serialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_constants.html">API Reference: Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_files.html">API Reference: Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chimera.html">Chimera</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015-2018, Intel Corporation.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

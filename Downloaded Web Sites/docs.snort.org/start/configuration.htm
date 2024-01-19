@@ -1,0 +1,306 @@
+﻿<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js snort-dark">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Configuration - Snort 3 Rule Writing Guide</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="../css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "snort-dark" : "snort-dark";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('snort-dark')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../welcome.htm">Snort 3 Rule Writing Guide</a></li><li class="chapter-item expanded "><a href="../intro.htm">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Using Snort 3</li><li class="chapter-item expanded "><a href="index.htm">Getting Started with Snort 3</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="installation.htm">Installing Snort</a></li><li class="chapter-item expanded "><a href="running.htm">Using Snort</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="help.htm">Command Line Basics</a></li><li class="chapter-item expanded "><a href="inspection.htm">Reading Traffic</a></li><li class="chapter-item expanded "><a href="configuration.htm" class="active">Configuration</a></li><li class="chapter-item expanded "><a href="rules.htm">Rules</a></li><li class="chapter-item expanded "><a href="wizard_binder.htm">Wizard and Binder</a></li><li class="chapter-item expanded "><a href="tweaks_scripts.htm">Tweaks and Scripts</a></li><li class="chapter-item expanded "><a href="tracing.htm">Trace Modules</a></li></ol></li></ol></li><li class="chapter-item expanded "><li class="part-title">Writing Snort Rules</li><li class="chapter-item expanded "><a href="../rules/index.htm">The Basics</a></li><li class="chapter-item expanded "><a href="../rules/headers/index.htm">Rule Headers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rules/headers/actions.htm">Rule Actions</a></li><li class="chapter-item expanded "><a href="../rules/headers/protocols.htm">Protocols</a></li><li class="chapter-item expanded "><a href="../rules/headers/ips.htm">IP Addresses</a></li><li class="chapter-item expanded "><a href="../rules/headers/ports.htm">Port Numbers</a></li><li class="chapter-item expanded "><a href="../rules/headers/directions.htm">Direction Operators</a></li></ol></li><li class="chapter-item expanded "><a href="../rules/headers/new_header_types.htm">New Rule Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rules/headers/service_rules.htm">Service Rules</a></li><li class="chapter-item expanded "><a href="../rules/headers/file_rules.htm">File Rules</a></li><li class="chapter-item expanded "><a href="../rules/headers/file_id_rules.htm">File Identification Rules</a></li></ol></li><li class="chapter-item expanded "><a href="../rules/options/index.htm">Rule Options</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rules/options/key.htm">Rule Option Syntax Key</a></li><li class="chapter-item expanded "><a href="../rules/options/general/index.htm">General Rule Options</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rules/options/general/msg.htm">msg</a></li><li class="chapter-item expanded "><a href="../rules/options/general/reference.htm">reference</a></li><li class="chapter-item expanded "><a href="../rules/options/general/gid.htm">gid</a></li><li class="chapter-item expanded "><a href="../rules/options/general/sid.htm">sid</a></li><li class="chapter-item expanded "><a href="../rules/options/general/rev.htm">rev</a></li><li class="chapter-item expanded "><a href="../rules/options/general/classtype.htm">classtype</a></li><li class="chapter-item expanded "><a href="../rules/options/general/priority.htm">priority</a></li><li class="chapter-item expanded "><a href="../rules/options/general/metadata.htm">metadata</a></li><li class="chapter-item expanded "><a href="../rules/options/general/service.htm">service</a></li><li class="chapter-item expanded "><a href="../rules/options/general/rem.htm">rem</a></li><li class="chapter-item expanded "><a href="../rules/options/general/file_meta.htm">file_meta</a></li></ol></li><li class="chapter-item expanded "><a href="../rules/options/payload/index.htm">Payload Detection Rule Options</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rules/options/payload/content.htm">content</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/fast_pattern.htm">fast_pattern</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/nocase.htm">nocase</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/oddw.htm">offset, depth, distance, and within</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/http/index.htm">HTTP Specific Options</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rules/options/payload/http/uri.htm">http_uri and http_raw_uri</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/http/header.htm">http_header and http_raw_header</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/http/cookie.htm">http_cookie and http_raw_cookie</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/http/body.htm">http_client_body and http_raw_body</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/http/param.htm">http_param</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/http/method.htm">http_method</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/http/version.htm">http_version</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/http/stat_code.htm">http_stat_code</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/http/stat_msg.htm">http_stat_msg</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/http/raw_req-raw_status.htm">http_raw_request and http_raw_status</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/http/trailer.htm">http_trailer and http_raw_trailer</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/http/true_ip.htm">http_true_ip</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/http/version_match.htm">http_version_match</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/http/num_headers.htm">http_num_headers</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/http/num_trailers.htm">http_num_trailers</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/http/num_cookies.htm">http_num_cookies</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/http/header_test.htm">http_header_test</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/http/trailer_test.htm">http_trailer_test</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/http/req_resp_detection.htm">Combining Request and Response Detection</a></li></ol></li><li class="chapter-item expanded "><a href="../rules/options/payload/bufferlen.htm">bufferlen</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/isdataat.htm">isdataat</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/dsize.htm">dsize</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/pcre.htm">pcre</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/regex.htm">regex</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/pkt_data.htm">pkt_data</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/raw_data.htm">raw_data</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/file_data.htm">file_data</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/js_data.htm">js_data</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/vba_data.htm">vba_data</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/base64.htm">base64_decode and base64_data</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/byte_extract.htm">byte_extract</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/byte_test.htm">byte_test</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/byte_math.htm">byte_math</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/byte_jump.htm">byte_jump</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/ber.htm">ber_data and ber_skip</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/ssl.htm">ssl_state and ssl_version</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/dce.htm">DCE Specific Options</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/sip.htm">SIP Specific Options</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/sd_pattern.htm">sd_pattern</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/cvs.htm">cvs</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/hash.htm">md5, sha256, and sha512</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/gtp.htm">GTP Specific Options</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/dnp3.htm">DNP3 Specific Options</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/cip.htm">CIP Specific Options</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/iec104.htm">IEC 104 Specific Options</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/mms.htm">MMS Specific Options</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/modbus.htm">Modbus Specific Options</a></li><li class="chapter-item expanded "><a href="../rules/options/payload/s7commplus.htm">S7CommPlus Specific Options</a></li></ol></li><li class="chapter-item expanded "><a href="../rules/options/non_payload/index.htm">Non-Payload Detection Rule Options</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rules/options/non_payload/fragoffset.htm">fragoffset</a></li><li class="chapter-item expanded "><a href="../rules/options/non_payload/ttl.htm">ttl</a></li><li class="chapter-item expanded "><a href="../rules/options/non_payload/tos.htm">tos</a></li><li class="chapter-item expanded "><a href="../rules/options/non_payload/id.htm">id</a></li><li class="chapter-item expanded "><a href="../rules/options/non_payload/ipopts.htm">ipopts</a></li><li class="chapter-item expanded "><a href="../rules/options/non_payload/fragbits.htm">fragbits</a></li><li class="chapter-item expanded "><a href="../rules/options/non_payload/ip_proto.htm">ip_proto</a></li><li class="chapter-item expanded "><a href="../rules/options/non_payload/flags.htm">flags</a></li><li class="chapter-item expanded "><a href="../rules/options/non_payload/flow.htm">flow</a></li><li class="chapter-item expanded "><a href="../rules/options/non_payload/flowbits.htm">flowbits</a></li><li class="chapter-item expanded "><a href="../rules/options/non_payload/file_type.htm">file_type</a></li><li class="chapter-item expanded "><a href="../rules/options/non_payload/seq.htm">seq</a></li><li class="chapter-item expanded "><a href="../rules/options/non_payload/ack.htm">ack</a></li><li class="chapter-item expanded "><a href="../rules/options/non_payload/window.htm">window</a></li><li class="chapter-item expanded "><a href="../rules/options/non_payload/itype.htm">itype</a></li><li class="chapter-item expanded "><a href="../rules/options/non_payload/icode.htm">icode</a></li><li class="chapter-item expanded "><a href="../rules/options/non_payload/icmp_id.htm">icmp_id</a></li><li class="chapter-item expanded "><a href="../rules/options/non_payload/icmp_seq.htm">icmp_seq</a></li><li class="chapter-item expanded "><a href="../rules/options/non_payload/rpc.htm">rpc</a></li><li class="chapter-item expanded "><a href="../rules/options/non_payload/stream_reassemble.htm">stream_reassemble</a></li><li class="chapter-item expanded "><a href="../rules/options/non_payload/stream_size.htm">stream_size</a></li></ol></li><li class="chapter-item expanded "><a href="../rules/options/post/index.htm">Post-Detection Rule Options</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rules/options/post/detection_filter.htm">detection_filter</a></li><li class="chapter-item expanded "><a href="../rules/options/post/replace.htm">replace</a></li><li class="chapter-item expanded "><a href="../rules/options/post/tag.htm">tag</a></li></ol></li></ol></li><li class="chapter-item expanded "><li class="part-title">Miscellaneous Information</li><li class="chapter-item expanded "><a href="../misc/shared-object-rules.htm">Shared Object Rules</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="snort-light">Snort Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="snort-dark">Snort Dark</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Snort 3 Rule Writing Guide</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.htm" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="configuration"><a class="header" href="#configuration">Configuration</a></h1>
+<p>Once we've got Snort set up to process traffic, it's now time to tell Snort <em>how</em> to process traffic, and this is done through configuration. Snort configuration handles things like the setting of global variables, the different modules to enable or disable, performance settings, event logging policies, the paths to specific rules files to enable, and much more.</p>
+<p>Snort 3 configuration is now all done in Lua, and these configuration options can be supplied to Snort in three different ways: via the command line, with a single Lua configuration file, or with multiple Lua configuration files.</p>
+<h2 id="configuration-files"><a class="header" href="#configuration-files">Configuration Files</a></h2>
+<p>There are <strong>many</strong> different configuration options that can be tuned in Snort, but luckily open-source Snort 3 comes with a set of standard configuration files that help get Snort users up and running quickly. These default files are located in the <code>lua/</code> directory, and the <code>snort.lua</code> and <code>snort_defaults.lua</code> files present there make up what is considered to be the the base configuration. This default config is an excellent template to build upon, and it can be plugged right into Snort for immediate use.</p>
+<h3 id="module-configuration"><a class="header" href="#module-configuration">Module configuration</a></h3>
+<p>A big part of one's configuration is the enabling and tuning of Snort &quot;modules&quot;, which at a high level control how Snort processes and handles network traffic. Snort contains modules to decipher raw packets, perform traffic normalization, determine whether or not a specific action should be taken against a particular packet, and also control how events should be logged. Snort features eight different types of modules:</p>
+<ul>
+<li>Basic Modules -&gt; handle configuration for basic traffic and rule processing</li>
+<li>Codec Modules -&gt; decode protocols and perform anomaly detection</li>
+<li>Inspector Modules -&gt; analyze and process protocols</li>
+<li>IPS Action Modules -&gt; enable custom actions that can be performed when an event occurs</li>
+<li>IPS Option Modules -&gt; options set in Snort rules to set the detection parameters</li>
+<li>Search Engine -&gt; perform pattern matching against packet data to determine which rules to evaluate</li>
+<li>SO Rule Modules -&gt; perform detection not attainable with the existing IPS options</li>
+<li>Logger Modules -&gt; control the output of events and packet data</li>
+</ul>
+<p>A list and brief description of all Snort 3 modules can be seen with the <code>--help-modules</code> command:</p>
+<pre><code>$ snort --help-modules
+</code></pre>
+<p>Modules are enabled and configured in a configuration as Lua table literals. For example, the <code>stream_tcp</code> inspector module, which handles TCP flow tracking and stream normalization and reassembly, can enabled like so:</p>
+<pre><code class="language-lua">stream_tcp = { }
+</code></pre>
+<p>If a module is initialized as an <em>empty</em> table, then that means the module is using its &quot;default&quot; settings. We can view these defaults with the <code>--help-config</code> argument:</p>
+<pre><code>$ snort --help-config stream_tcp
+int stream_tcp.flush_factor = 0: flush upon seeing a drop in segment size after given number of non-decreasing segments { 0:65535 }
+int stream_tcp.max_window = 0: maximum allowed TCP window { 0:1073725440 }
+int stream_tcp.overlap_limit = 0: maximum number of allowed overlapping segments per session { 0:max32 }
+int stream_tcp.max_pdu = 16384: maximum reassembled PDU size { 1460:32768 }
+bool stream_tcp.no_ack = false: received data is implicitly acked immediately
+enum stream_tcp.policy = 'bsd': determines operating system characteristics like reassembly { 'first' | 'last' | 'linux' | 'old_linux' | 'bsd' | 'macos' | 'solaris' | 'irix' | 'hpux11' | 'hpux10' | 'windows' | 'win_2003' | 'vista' | 'proxy' }
+bool stream_tcp.reassemble_async = true: queue data for reassembly before traffic is seen in both directions
+int stream_tcp.require_3whs = -1: don't track midstream sessions after given seconds from start up; -1 tracks all { -1:max31 }
+bool stream_tcp.show_rebuilt_packets = false: enable cmg like output of reassembled packets
+int stream_tcp.queue_limit.max_bytes = 4194304: don't queue more than given bytes per session and direction, 0 = unlimited { 0:max32 }
+int stream_tcp.queue_limit.max_segments = 3072: don't queue more than given segments per session and direction, 0 = unlimited { 0:max32 }
+int stream_tcp.small_segments.count = 0: number of consecutive (in the received order) TCP small segments considered to be excessive (129:12) { 0:2048 }
+int stream_tcp.small_segments.maximum_size = 0: minimum bytes for a TCP segment not to be considered small (129:12) { 0:2048 }
+int stream_tcp.session_timeout = 180: session tracking timeout { 1:max31 }
+bool stream_tcp.track_only = false: disable reassembly if true
+</code></pre>
+<p>This command outputs the different settings for the given module, a description of each setting, and valid values for each one. The <code>max_pdu</code> setting, for example, can be set to an integer between 1460 and 32768 (inclusive).</p>
+<p>Entries in Lua table literals are effectively just key-value pairs. If we wanted to set <code>stream_tcp.max_pdu</code> to its max setting, we would simply add a table entry like so:</p>
+<pre><code class="language-lua">stream_tcp = 
+{ 
+    max_pdu = 32768
+}
+</code></pre>
+<p>Other entries follow the same format and are separated by commas.</p>
+<p>The default <code>snort.lua</code> configuration file enables and configures many of the core modules relied upon by Snort, and users are encouraged to go through that file and learn about the different ones using the <code>--help-module</code> and <code>--help-config</code> Snort commands.</p>
+<h3 id="passing-configuration-files-to-snort"><a class="header" href="#passing-configuration-files-to-snort">Passing configuration files to Snort</a></h3>
+<p>Snort doesn't look for a specific configuration file by default, but you can pass one to it very easily with the <code>-c</code> argument: </p>
+<pre><code>$ snort -c $my_path/lua/snort.lua
+</code></pre>
+<p>This command simply validates the supplied configuration file, and if everything is in order, the output will include a message that says &quot;Snort successfully validated the configuration&quot;.</p>
+<h2 id="tuning-lua-configurations-via-the-command-line"><a class="header" href="#tuning-lua-configurations-via-the-command-line">Tuning Lua Configurations via the Command Line</a></h2>
+<p>Sometimes rule writers will want to experiment with a specific configuration to see how it might affect detection. Fortunately, Snort 3 provides the ability to run one-off custom Lua configurations directly from the command line using the <code>--lua</code> flag followed by a string enclosed in quotes containing the specific Lua configuration (or configurations) to set.</p>
+<p>For example, the following <code>--lua</code> command sets the <code>enable_builtin_rules</code> boolean from the <code>ips</code> module to <code>true</code>:</p>
+<pre><code>$ snort -c $my_path/lua/snort.lua -R local.rules \
+        --lua 'ips.enable_builtin_rules = true'
+</code></pre>
+<p>Note that the above <code>--lua</code> argument uses <em>dot notation</em> to <em>extend</em> any existing <code>ips</code> configuration present in one's Snort configuration file. However, users can also <em>override</em> a given module's configuration using <em>curly braces</em> instead of using dot notation.</p>
+<p>The following argument, for example, overrides any existing <code>ips</code> configuration with the one specified:</p>
+<pre><code>$ snort -c $my_path/lua/snort.lua -R local.rules \
+        --lua 'ips = { enable_builtin_rules = true }'
+</code></pre>
+<p>This above example sets <code>ips</code> back to its default settings, but then also sets <code>enable_builtin_rules</code> to <code>true</code>.</p>
+<h2 id="snort2lua"><a class="header" href="#snort2lua">Snort2Lua</a></h2>
+<h3 id="converting-configuration-files"><a class="header" href="#converting-configuration-files">Converting configuration files</a></h3>
+<p>For those that are coming from Snort 2 and have a working 2.x configuration file, building Snort 3 also creates a binary named <code>snort2lua</code>, which can take one's old Snort 2 configuration and output one that can be plugged into Snort 3.</p>
+<p>Running this command is as easy as invoking the binary followed by a <code>-c</code> option that points to the Snort 2 configuration file:</p>
+<pre><code>$ snort2lua -c snort.conf
+</code></pre>
+<p>If any errors occur during the conversion, they will be placed in a <code>snort.rej</code> file in the current working directory. Once all errors have been taken care of, <code>snort2lua</code> will output a <code>snort.lua</code> file that can then be passed directly to Snort 3.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="inspection.htm" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="rules.htm" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="inspection.htm" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="rules.htm" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+        
+
+        
+
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    <script defer="" src="../beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"847db0f5fb3cd97b","b":1,"version":"2024.1.0","token":"259dc4eadf5b43fbbc95b1d26ba39d7c"}' crossorigin="anonymous"></script>
+</body>
+</html>

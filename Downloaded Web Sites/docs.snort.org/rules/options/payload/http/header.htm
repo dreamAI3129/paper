@@ -1,0 +1,263 @@
+﻿<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js snort-dark">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>http_header and http_raw_header - Snort 3 Rule Writing Guide</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        
+        <link rel="icon" href="../../../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../../../favicon.png">
+        
+        <link rel="stylesheet" href="../../../../css/variables.css">
+        <link rel="stylesheet" href="../../../../css/general.css">
+        <link rel="stylesheet" href="../../../../css/chrome.css">
+        
+        <link rel="stylesheet" href="../../../../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="../../../../css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../../../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../../highlight.css">
+        <link rel="stylesheet" href="../../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "snort-dark" : "snort-dark";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('snort-dark')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../../../welcome.htm">Snort 3 Rule Writing Guide</a></li><li class="chapter-item expanded "><a href="../../../../intro.htm">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Using Snort 3</li><li class="chapter-item expanded "><a href="../../../../start/index.htm">Getting Started with Snort 3</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../../start/installation.htm">Installing Snort</a></li><li class="chapter-item expanded "><a href="../../../../start/running.htm">Using Snort</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../../start/help.htm">Command Line Basics</a></li><li class="chapter-item expanded "><a href="../../../../start/inspection.htm">Reading Traffic</a></li><li class="chapter-item expanded "><a href="../../../../start/configuration.htm">Configuration</a></li><li class="chapter-item expanded "><a href="../../../../start/rules.htm">Rules</a></li><li class="chapter-item expanded "><a href="../../../../start/wizard_binder.htm">Wizard and Binder</a></li><li class="chapter-item expanded "><a href="../../../../start/tweaks_scripts.htm">Tweaks and Scripts</a></li><li class="chapter-item expanded "><a href="../../../../start/tracing.htm">Trace Modules</a></li></ol></li></ol></li><li class="chapter-item expanded "><li class="part-title">Writing Snort Rules</li><li class="chapter-item expanded "><a href="../../../index.htm">The Basics</a></li><li class="chapter-item expanded "><a href="../../../headers/index.htm">Rule Headers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../headers/actions.htm">Rule Actions</a></li><li class="chapter-item expanded "><a href="../../../headers/protocols.htm">Protocols</a></li><li class="chapter-item expanded "><a href="../../../headers/ips.htm">IP Addresses</a></li><li class="chapter-item expanded "><a href="../../../headers/ports.htm">Port Numbers</a></li><li class="chapter-item expanded "><a href="../../../headers/directions.htm">Direction Operators</a></li></ol></li><li class="chapter-item expanded "><a href="../../../headers/new_header_types.htm">New Rule Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../headers/service_rules.htm">Service Rules</a></li><li class="chapter-item expanded "><a href="../../../headers/file_rules.htm">File Rules</a></li><li class="chapter-item expanded "><a href="../../../headers/file_id_rules.htm">File Identification Rules</a></li></ol></li><li class="chapter-item expanded "><a href="../../index.htm">Rule Options</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../key.htm">Rule Option Syntax Key</a></li><li class="chapter-item expanded "><a href="../../general/index.htm">General Rule Options</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../general/msg.htm">msg</a></li><li class="chapter-item expanded "><a href="../../general/reference.htm">reference</a></li><li class="chapter-item expanded "><a href="../../general/gid.htm">gid</a></li><li class="chapter-item expanded "><a href="../../general/sid.htm">sid</a></li><li class="chapter-item expanded "><a href="../../general/rev.htm">rev</a></li><li class="chapter-item expanded "><a href="../../general/classtype.htm">classtype</a></li><li class="chapter-item expanded "><a href="../../general/priority.htm">priority</a></li><li class="chapter-item expanded "><a href="../../general/metadata.htm">metadata</a></li><li class="chapter-item expanded "><a href="../../general/service.htm">service</a></li><li class="chapter-item expanded "><a href="../../general/rem.htm">rem</a></li><li class="chapter-item expanded "><a href="../../general/file_meta.htm">file_meta</a></li></ol></li><li class="chapter-item expanded "><a href="../index.htm">Payload Detection Rule Options</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../content.htm">content</a></li><li class="chapter-item expanded "><a href="../fast_pattern.htm">fast_pattern</a></li><li class="chapter-item expanded "><a href="../nocase.htm">nocase</a></li><li class="chapter-item expanded "><a href="../oddw.htm">offset, depth, distance, and within</a></li><li class="chapter-item expanded "><a href="index.htm">HTTP Specific Options</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="uri.htm">http_uri and http_raw_uri</a></li><li class="chapter-item expanded "><a href="header.htm" class="active">http_header and http_raw_header</a></li><li class="chapter-item expanded "><a href="cookie.htm">http_cookie and http_raw_cookie</a></li><li class="chapter-item expanded "><a href="body.htm">http_client_body and http_raw_body</a></li><li class="chapter-item expanded "><a href="param.htm">http_param</a></li><li class="chapter-item expanded "><a href="method.htm">http_method</a></li><li class="chapter-item expanded "><a href="version.htm">http_version</a></li><li class="chapter-item expanded "><a href="stat_code.htm">http_stat_code</a></li><li class="chapter-item expanded "><a href="stat_msg.htm">http_stat_msg</a></li><li class="chapter-item expanded "><a href="raw_req-raw_status.htm">http_raw_request and http_raw_status</a></li><li class="chapter-item expanded "><a href="trailer.htm">http_trailer and http_raw_trailer</a></li><li class="chapter-item expanded "><a href="true_ip.htm">http_true_ip</a></li><li class="chapter-item expanded "><a href="version_match.htm">http_version_match</a></li><li class="chapter-item expanded "><a href="num_headers.htm">http_num_headers</a></li><li class="chapter-item expanded "><a href="num_trailers.htm">http_num_trailers</a></li><li class="chapter-item expanded "><a href="num_cookies.htm">http_num_cookies</a></li><li class="chapter-item expanded "><a href="header_test.htm">http_header_test</a></li><li class="chapter-item expanded "><a href="trailer_test.htm">http_trailer_test</a></li><li class="chapter-item expanded "><a href="req_resp_detection.htm">Combining Request and Response Detection</a></li></ol></li><li class="chapter-item expanded "><a href="../bufferlen.htm">bufferlen</a></li><li class="chapter-item expanded "><a href="../isdataat.htm">isdataat</a></li><li class="chapter-item expanded "><a href="../dsize.htm">dsize</a></li><li class="chapter-item expanded "><a href="../pcre.htm">pcre</a></li><li class="chapter-item expanded "><a href="../regex.htm">regex</a></li><li class="chapter-item expanded "><a href="../pkt_data.htm">pkt_data</a></li><li class="chapter-item expanded "><a href="../raw_data.htm">raw_data</a></li><li class="chapter-item expanded "><a href="../file_data.htm">file_data</a></li><li class="chapter-item expanded "><a href="../js_data.htm">js_data</a></li><li class="chapter-item expanded "><a href="../vba_data.htm">vba_data</a></li><li class="chapter-item expanded "><a href="../base64.htm">base64_decode and base64_data</a></li><li class="chapter-item expanded "><a href="../byte_extract.htm">byte_extract</a></li><li class="chapter-item expanded "><a href="../byte_test.htm">byte_test</a></li><li class="chapter-item expanded "><a href="../byte_math.htm">byte_math</a></li><li class="chapter-item expanded "><a href="../byte_jump.htm">byte_jump</a></li><li class="chapter-item expanded "><a href="../ber.htm">ber_data and ber_skip</a></li><li class="chapter-item expanded "><a href="../ssl.htm">ssl_state and ssl_version</a></li><li class="chapter-item expanded "><a href="../dce.htm">DCE Specific Options</a></li><li class="chapter-item expanded "><a href="../sip.htm">SIP Specific Options</a></li><li class="chapter-item expanded "><a href="../sd_pattern.htm">sd_pattern</a></li><li class="chapter-item expanded "><a href="../cvs.htm">cvs</a></li><li class="chapter-item expanded "><a href="../hash.htm">md5, sha256, and sha512</a></li><li class="chapter-item expanded "><a href="../gtp.htm">GTP Specific Options</a></li><li class="chapter-item expanded "><a href="../dnp3.htm">DNP3 Specific Options</a></li><li class="chapter-item expanded "><a href="../cip.htm">CIP Specific Options</a></li><li class="chapter-item expanded "><a href="../iec104.htm">IEC 104 Specific Options</a></li><li class="chapter-item expanded "><a href="../mms.htm">MMS Specific Options</a></li><li class="chapter-item expanded "><a href="../modbus.htm">Modbus Specific Options</a></li><li class="chapter-item expanded "><a href="../s7commplus.htm">S7CommPlus Specific Options</a></li></ol></li><li class="chapter-item expanded "><a href="../../non_payload/index.htm">Non-Payload Detection Rule Options</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../non_payload/fragoffset.htm">fragoffset</a></li><li class="chapter-item expanded "><a href="../../non_payload/ttl.htm">ttl</a></li><li class="chapter-item expanded "><a href="../../non_payload/tos.htm">tos</a></li><li class="chapter-item expanded "><a href="../../non_payload/id.htm">id</a></li><li class="chapter-item expanded "><a href="../../non_payload/ipopts.htm">ipopts</a></li><li class="chapter-item expanded "><a href="../../non_payload/fragbits.htm">fragbits</a></li><li class="chapter-item expanded "><a href="../../non_payload/ip_proto.htm">ip_proto</a></li><li class="chapter-item expanded "><a href="../../non_payload/flags.htm">flags</a></li><li class="chapter-item expanded "><a href="../../non_payload/flow.htm">flow</a></li><li class="chapter-item expanded "><a href="../../non_payload/flowbits.htm">flowbits</a></li><li class="chapter-item expanded "><a href="../../non_payload/file_type.htm">file_type</a></li><li class="chapter-item expanded "><a href="../../non_payload/seq.htm">seq</a></li><li class="chapter-item expanded "><a href="../../non_payload/ack.htm">ack</a></li><li class="chapter-item expanded "><a href="../../non_payload/window.htm">window</a></li><li class="chapter-item expanded "><a href="../../non_payload/itype.htm">itype</a></li><li class="chapter-item expanded "><a href="../../non_payload/icode.htm">icode</a></li><li class="chapter-item expanded "><a href="../../non_payload/icmp_id.htm">icmp_id</a></li><li class="chapter-item expanded "><a href="../../non_payload/icmp_seq.htm">icmp_seq</a></li><li class="chapter-item expanded "><a href="../../non_payload/rpc.htm">rpc</a></li><li class="chapter-item expanded "><a href="../../non_payload/stream_reassemble.htm">stream_reassemble</a></li><li class="chapter-item expanded "><a href="../../non_payload/stream_size.htm">stream_size</a></li></ol></li><li class="chapter-item expanded "><a href="../../post/index.htm">Post-Detection Rule Options</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../post/detection_filter.htm">detection_filter</a></li><li class="chapter-item expanded "><a href="../../post/replace.htm">replace</a></li><li class="chapter-item expanded "><a href="../../post/tag.htm">tag</a></li></ol></li></ol></li><li class="chapter-item expanded "><li class="part-title">Miscellaneous Information</li><li class="chapter-item expanded "><a href="../../../../misc/shared-object-rules.htm">Shared Object Rules</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="snort-light">Snort Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="snort-dark">Snort Dark</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Snort 3 Rule Writing Guide</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../../../../print.htm" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="http_header-and-http_raw_header"><a class="header" href="#http_header-and-http_raw_header">http_header and http_raw_header</a></h1>
+<p>Snort makes HTTP request and response headers available in two sticky buffers, <code>http_header</code> and <code>http_raw_header</code>. The <code>http_header</code> buffer contains the <em>normalized</em> request/response headers, whereas the <code>http_raw_header</code> buffer contains <em>unnormalized</em> ones.</p>
+<p>The header normalization that occurs is similar to the URI normalization and includes things like percent-decoding and path-simplification.</p>
+<p>Snort 3 also allows users the ability to look for content matches in specific HTTP header fields with the optional <code>field <var>header_name</var></code> argument. This option is specified with a colon character after <code>http_header</code>, followed by the word &quot;field&quot;, and lastly followed by the specific header field name (which is case-insensitive). For example:</p>
+<pre><code>http_header:field user-agent;
+</code></pre>
+<p>Specifying individual headers like this creates a more efficient and accurate rule.</p>
+<p><code>http_header</code> and <code>http_raw_header</code> also allow for an optional <code>request</code> argument, which is useful if writing detection that looks at both an HTTP client request and the HTTP server response to that request. More specifically, this <code>request</code> argument is used to signify that the <code>http_header</code> or <code>http_raw_header</code> match or matches should apply to the headers from the <em>request</em> if other parts of the rule are examining the <em>response</em>. More information on this topic can be found on <a href="req_resp_detection.htm">this page</a>.</p>
+<h2 id="http_header"><a class="header" href="#http_header">http_header</a></h2>
+<h4 id="format"><a class="header" href="#format">Format:</a></h4>
+<pre><code>http_header[:field <var style="color:slategrey;">header_name</var>][,request];</code></pre>
+<h4 id="examples"><a class="header" href="#examples">Examples:</a></h4>
+<pre><code class="language-snort">http_header;
+content:&quot;User-Agent: abcip&quot;,fast_pattern,nocase;
+content:&quot;Accept-Language: en-us&quot;,nocase,distance 0;
+</code></pre>
+<pre><code class="language-snort"># http_header field name arguments are case-insensitive
+http_header:field user-agent;
+content:&quot;abcip&quot;;
+</code></pre>
+<h2 id="http_raw_header"><a class="header" href="#http_raw_header">http_raw_header</a></h2>
+<h4 id="format-1"><a class="header" href="#format-1">Format:</a></h4>
+<pre><code>http_raw_header[:field <var style="color:slategrey;">header_name</var>][,request];</code></pre>
+<h4 id="examples-1"><a class="header" href="#examples-1">Examples:</a></h4>
+<pre><code class="language-snort">http_raw_header;
+content:&quot;Accept-Language: en-us&quot;,fast_pattern,nocase;
+</code></pre>
+<pre><code class="language-snort">http_raw_header;
+content:&quot;Accept-Language:&quot;,fast_pattern,nocase;
+content:&quot;%60whoami&quot;,within 30;
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="uri.htm" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="cookie.htm" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="uri.htm" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="cookie.htm" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+        
+
+        
+
+        
+
+        
+
+        
+        <script src="../../../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    <script defer="" src="../../../../beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"847db128bc35d97b","b":1,"version":"2024.1.0","token":"259dc4eadf5b43fbbc95b1d26ba39d7c"}' crossorigin="anonymous"></script>
+</body>
+</html>

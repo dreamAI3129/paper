@@ -1,0 +1,382 @@
+﻿<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js snort-dark">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>CIP Specific Options - Snort 3 Rule Writing Guide</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        
+        <link rel="icon" href="../../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../../favicon.png">
+        
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="../../../css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "snort-dark" : "snort-dark";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('snort-dark')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../../welcome.htm">Snort 3 Rule Writing Guide</a></li><li class="chapter-item expanded "><a href="../../../intro.htm">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Using Snort 3</li><li class="chapter-item expanded "><a href="../../../start/index.htm">Getting Started with Snort 3</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../start/installation.htm">Installing Snort</a></li><li class="chapter-item expanded "><a href="../../../start/running.htm">Using Snort</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../start/help.htm">Command Line Basics</a></li><li class="chapter-item expanded "><a href="../../../start/inspection.htm">Reading Traffic</a></li><li class="chapter-item expanded "><a href="../../../start/configuration.htm">Configuration</a></li><li class="chapter-item expanded "><a href="../../../start/rules.htm">Rules</a></li><li class="chapter-item expanded "><a href="../../../start/wizard_binder.htm">Wizard and Binder</a></li><li class="chapter-item expanded "><a href="../../../start/tweaks_scripts.htm">Tweaks and Scripts</a></li><li class="chapter-item expanded "><a href="../../../start/tracing.htm">Trace Modules</a></li></ol></li></ol></li><li class="chapter-item expanded "><li class="part-title">Writing Snort Rules</li><li class="chapter-item expanded "><a href="../../index.htm">The Basics</a></li><li class="chapter-item expanded "><a href="../../headers/index.htm">Rule Headers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../headers/actions.htm">Rule Actions</a></li><li class="chapter-item expanded "><a href="../../headers/protocols.htm">Protocols</a></li><li class="chapter-item expanded "><a href="../../headers/ips.htm">IP Addresses</a></li><li class="chapter-item expanded "><a href="../../headers/ports.htm">Port Numbers</a></li><li class="chapter-item expanded "><a href="../../headers/directions.htm">Direction Operators</a></li></ol></li><li class="chapter-item expanded "><a href="../../headers/new_header_types.htm">New Rule Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../headers/service_rules.htm">Service Rules</a></li><li class="chapter-item expanded "><a href="../../headers/file_rules.htm">File Rules</a></li><li class="chapter-item expanded "><a href="../../headers/file_id_rules.htm">File Identification Rules</a></li></ol></li><li class="chapter-item expanded "><a href="../index.htm">Rule Options</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../key.htm">Rule Option Syntax Key</a></li><li class="chapter-item expanded "><a href="../general/index.htm">General Rule Options</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../general/msg.htm">msg</a></li><li class="chapter-item expanded "><a href="../general/reference.htm">reference</a></li><li class="chapter-item expanded "><a href="../general/gid.htm">gid</a></li><li class="chapter-item expanded "><a href="../general/sid.htm">sid</a></li><li class="chapter-item expanded "><a href="../general/rev.htm">rev</a></li><li class="chapter-item expanded "><a href="../general/classtype.htm">classtype</a></li><li class="chapter-item expanded "><a href="../general/priority.htm">priority</a></li><li class="chapter-item expanded "><a href="../general/metadata.htm">metadata</a></li><li class="chapter-item expanded "><a href="../general/service.htm">service</a></li><li class="chapter-item expanded "><a href="../general/rem.htm">rem</a></li><li class="chapter-item expanded "><a href="../general/file_meta.htm">file_meta</a></li></ol></li><li class="chapter-item expanded "><a href="index.htm">Payload Detection Rule Options</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content.htm">content</a></li><li class="chapter-item expanded "><a href="fast_pattern.htm">fast_pattern</a></li><li class="chapter-item expanded "><a href="nocase.htm">nocase</a></li><li class="chapter-item expanded "><a href="oddw.htm">offset, depth, distance, and within</a></li><li class="chapter-item expanded "><a href="http/index.htm">HTTP Specific Options</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="http/uri.htm">http_uri and http_raw_uri</a></li><li class="chapter-item expanded "><a href="http/header.htm">http_header and http_raw_header</a></li><li class="chapter-item expanded "><a href="http/cookie.htm">http_cookie and http_raw_cookie</a></li><li class="chapter-item expanded "><a href="http/body.htm">http_client_body and http_raw_body</a></li><li class="chapter-item expanded "><a href="http/param.htm">http_param</a></li><li class="chapter-item expanded "><a href="http/method.htm">http_method</a></li><li class="chapter-item expanded "><a href="http/version.htm">http_version</a></li><li class="chapter-item expanded "><a href="http/stat_code.htm">http_stat_code</a></li><li class="chapter-item expanded "><a href="http/stat_msg.htm">http_stat_msg</a></li><li class="chapter-item expanded "><a href="http/raw_req-raw_status.htm">http_raw_request and http_raw_status</a></li><li class="chapter-item expanded "><a href="http/trailer.htm">http_trailer and http_raw_trailer</a></li><li class="chapter-item expanded "><a href="http/true_ip.htm">http_true_ip</a></li><li class="chapter-item expanded "><a href="http/version_match.htm">http_version_match</a></li><li class="chapter-item expanded "><a href="http/num_headers.htm">http_num_headers</a></li><li class="chapter-item expanded "><a href="http/num_trailers.htm">http_num_trailers</a></li><li class="chapter-item expanded "><a href="http/num_cookies.htm">http_num_cookies</a></li><li class="chapter-item expanded "><a href="http/header_test.htm">http_header_test</a></li><li class="chapter-item expanded "><a href="http/trailer_test.htm">http_trailer_test</a></li><li class="chapter-item expanded "><a href="http/req_resp_detection.htm">Combining Request and Response Detection</a></li></ol></li><li class="chapter-item expanded "><a href="bufferlen.htm">bufferlen</a></li><li class="chapter-item expanded "><a href="isdataat.htm">isdataat</a></li><li class="chapter-item expanded "><a href="dsize.htm">dsize</a></li><li class="chapter-item expanded "><a href="pcre.htm">pcre</a></li><li class="chapter-item expanded "><a href="regex.htm">regex</a></li><li class="chapter-item expanded "><a href="pkt_data.htm">pkt_data</a></li><li class="chapter-item expanded "><a href="raw_data.htm">raw_data</a></li><li class="chapter-item expanded "><a href="file_data.htm">file_data</a></li><li class="chapter-item expanded "><a href="js_data.htm">js_data</a></li><li class="chapter-item expanded "><a href="vba_data.htm">vba_data</a></li><li class="chapter-item expanded "><a href="base64.htm">base64_decode and base64_data</a></li><li class="chapter-item expanded "><a href="byte_extract.htm">byte_extract</a></li><li class="chapter-item expanded "><a href="byte_test.htm">byte_test</a></li><li class="chapter-item expanded "><a href="byte_math.htm">byte_math</a></li><li class="chapter-item expanded "><a href="byte_jump.htm">byte_jump</a></li><li class="chapter-item expanded "><a href="ber.htm">ber_data and ber_skip</a></li><li class="chapter-item expanded "><a href="ssl.htm">ssl_state and ssl_version</a></li><li class="chapter-item expanded "><a href="dce.htm">DCE Specific Options</a></li><li class="chapter-item expanded "><a href="sip.htm">SIP Specific Options</a></li><li class="chapter-item expanded "><a href="sd_pattern.htm">sd_pattern</a></li><li class="chapter-item expanded "><a href="cvs.htm">cvs</a></li><li class="chapter-item expanded "><a href="hash.htm">md5, sha256, and sha512</a></li><li class="chapter-item expanded "><a href="gtp.htm">GTP Specific Options</a></li><li class="chapter-item expanded "><a href="dnp3.htm">DNP3 Specific Options</a></li><li class="chapter-item expanded "><a href="cip.htm" class="active">CIP Specific Options</a></li><li class="chapter-item expanded "><a href="iec104.htm">IEC 104 Specific Options</a></li><li class="chapter-item expanded "><a href="mms.htm">MMS Specific Options</a></li><li class="chapter-item expanded "><a href="modbus.htm">Modbus Specific Options</a></li><li class="chapter-item expanded "><a href="s7commplus.htm">S7CommPlus Specific Options</a></li></ol></li><li class="chapter-item expanded "><a href="../non_payload/index.htm">Non-Payload Detection Rule Options</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../non_payload/fragoffset.htm">fragoffset</a></li><li class="chapter-item expanded "><a href="../non_payload/ttl.htm">ttl</a></li><li class="chapter-item expanded "><a href="../non_payload/tos.htm">tos</a></li><li class="chapter-item expanded "><a href="../non_payload/id.htm">id</a></li><li class="chapter-item expanded "><a href="../non_payload/ipopts.htm">ipopts</a></li><li class="chapter-item expanded "><a href="../non_payload/fragbits.htm">fragbits</a></li><li class="chapter-item expanded "><a href="../non_payload/ip_proto.htm">ip_proto</a></li><li class="chapter-item expanded "><a href="../non_payload/flags.htm">flags</a></li><li class="chapter-item expanded "><a href="../non_payload/flow.htm">flow</a></li><li class="chapter-item expanded "><a href="../non_payload/flowbits.htm">flowbits</a></li><li class="chapter-item expanded "><a href="../non_payload/file_type.htm">file_type</a></li><li class="chapter-item expanded "><a href="../non_payload/seq.htm">seq</a></li><li class="chapter-item expanded "><a href="../non_payload/ack.htm">ack</a></li><li class="chapter-item expanded "><a href="../non_payload/window.htm">window</a></li><li class="chapter-item expanded "><a href="../non_payload/itype.htm">itype</a></li><li class="chapter-item expanded "><a href="../non_payload/icode.htm">icode</a></li><li class="chapter-item expanded "><a href="../non_payload/icmp_id.htm">icmp_id</a></li><li class="chapter-item expanded "><a href="../non_payload/icmp_seq.htm">icmp_seq</a></li><li class="chapter-item expanded "><a href="../non_payload/rpc.htm">rpc</a></li><li class="chapter-item expanded "><a href="../non_payload/stream_reassemble.htm">stream_reassemble</a></li><li class="chapter-item expanded "><a href="../non_payload/stream_size.htm">stream_size</a></li></ol></li><li class="chapter-item expanded "><a href="../post/index.htm">Post-Detection Rule Options</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../post/detection_filter.htm">detection_filter</a></li><li class="chapter-item expanded "><a href="../post/replace.htm">replace</a></li><li class="chapter-item expanded "><a href="../post/tag.htm">tag</a></li></ol></li></ol></li><li class="chapter-item expanded "><li class="part-title">Miscellaneous Information</li><li class="chapter-item expanded "><a href="../../../misc/shared-object-rules.htm">Shared Object Rules</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="snort-light">Snort Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="snort-dark">Snort Dark</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Snort 3 Rule Writing Guide</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../../../print.htm" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="cip-specific-options"><a class="header" href="#cip-specific-options">CIP Specific Options</a></h1>
+<p>Snort 3 features a Common Industrial Protocol (CIP) service inspector that does CIP decoding and enables detection of various CIP fields. This service inspector is also able to decode Ethernet/IP (ENIP) protocols as well.</p>
+<p>The CIP inspector provides 11 different rule options: <code>cip_attribute</code>, <code>cip_class</code>, <code>cip_conn_path_class</code>, <code>enip_command</code>, <code>enip_req</code>, <code>enip_rsp</code>, <code>cip_instance</code>, <code>cip_req</code>, <code>cip_rsp</code>, <code>cip_service</code>, and <code>cip_status</code>. Each of these options is broken down below.</p>
+<p>This inspector is disabled by default, and so you will need to enable the <code>cip</code> service inspector and add entries to the binder in your Snort config to tell Snort which traffic to run the <code>cip</code> service inspector on. Below is a snippet of a Snort config showing these two things:</p>
+<pre><code class="language-lua">-- enable the CIP inspector
+cip = { }
+-- add CIP binder entries
+binder = 
+{
+    { when = { proto = 'tcp', ports = '44818', role = 'server' }, use = { type = 'cip' } },
+    { when = { proto = 'udp', ports = '22222', role = 'server' }, use = { type = 'cip' } },
+</code></pre>
+<h2 id="cip_attribute"><a class="header" href="#cip_attribute">cip_attribute</a></h2>
+<p>The <code>cip_attribute</code> rule option is used to look for a single CIP attribute or multiple CIP attributes.</p>
+<p>This rule option takes in one argument, which is either a single attribute value used with an optional comparison operator sign, or a range of attributes using one of two range operator signs. The range comparison is done by including either the <code>&lt;&gt;</code> or <code>&lt;=&gt;</code> sign and putting the minimum number the left of the sign and the maximum number to the right of it. The <code>&lt;&gt;</code> case is for an <em>exclusive</em> min-max check, while the <code>&lt;=&gt;</code> is for an <em>inclusive</em> min-max check.</p>
+<h4 id="format"><a class="header" href="#format">Format:</a></h4>
+<h5 id="single-value-comparison"><a class="header" href="#single-value-comparison">Single value comparison:</a></h5>
+<pre><code>cip_attribute:[<|>|=|!|<=|>=]<var style="color:slategrey;">attribute</var>;</code></pre>
+<h5 id="range-comparison"><a class="header" href="#range-comparison">Range comparison:</a></h5>
+<pre><code>cip_attribute:<var style="color:slategrey;">min_attribute</var>{<>|<=>}<var style="color:slategrey;">max_attribute</var>;</code></pre>
+<h4 id="examples"><a class="header" href="#examples">Examples:</a></h4>
+<pre><code class="language-snort">cip_attribute:5;
+</code></pre>
+<pre><code class="language-snort">cip_attribute:&gt;5;
+</code></pre>
+<h2 id="cip_class"><a class="header" href="#cip_class">cip_class</a></h2>
+<p>The <code>cip_class</code> rule option is used to look for a single CIP class or multiple CIP classes.</p>
+<p>This rule option takes in one argument, which is either a single class value used with an optional comparison operator sign, or a range of classes using one of two range operator signs. The range comparison is done by including either the <code>&lt;&gt;</code> or <code>&lt;=&gt;</code> sign and putting the minimum number the left of the sign and the maximum number to the right of it. The <code>&lt;&gt;</code> case is for an <em>exclusive</em> min-max check, while the <code>&lt;=&gt;</code> is for an <em>inclusive</em> min-max check.</p>
+<h4 id="format-1"><a class="header" href="#format-1">Format:</a></h4>
+<h5 id="single-value-comparison-1"><a class="header" href="#single-value-comparison-1">Single value comparison:</a></h5>
+<pre><code>cip_class:[<|>|=|!|<=|>=]<var style="color:slategrey;">class</var>;</code></pre>
+<h5 id="range-comparison-1"><a class="header" href="#range-comparison-1">Range comparison:</a></h5>
+<pre><code>cip_class:<var style="color:slategrey;">min_class</var>{<>|<=>}<var style="color:slategrey;">max_class</var>;</code></pre>
+<h4 id="examples-1"><a class="header" href="#examples-1">Examples:</a></h4>
+<pre><code class="language-snort">cip_class:2;
+</code></pre>
+<pre><code class="language-snort">cip_class:2&lt;&gt;5;
+</code></pre>
+<h2 id="cip_conn_path_class"><a class="header" href="#cip_conn_path_class">cip_conn_path_class</a></h2>
+<p>The <code>cip_conn_path_class</code> rule option is used to match a single CIP connection path class or multiple CIP connection path classes.</p>
+<p>This rule option takes in one argument, which is either a single connection path class value used with an optional comparison operator sign, or a range of connection path class using one of two range operator signs. The range comparison is done by including either the <code>&lt;&gt;</code> or <code>&lt;=&gt;</code> sign and putting the minimum number the left of the sign and the maximum number to the right of it. The <code>&lt;&gt;</code> case is for an <em>exclusive</em> min-max check, while the <code>&lt;=&gt;</code> is for an <em>inclusive</em> min-max check.</p>
+<h4 id="format-2"><a class="header" href="#format-2">Format:</a></h4>
+<h5 id="single-value-comparison-2"><a class="header" href="#single-value-comparison-2">Single value comparison:</a></h5>
+<pre><code>cip_conn_path_class:[<|>|=|!|<=|>=]<var style="color:slategrey;">conn_path_class</var>;</code></pre>
+<h5 id="range-comparison-2"><a class="header" href="#range-comparison-2">Range comparison:</a></h5>
+<pre><code>cip_conn_path_class:<var style="color:slategrey;">min_conn_path_class</var>{<>|<=>}<var style="color:slategrey;">max_conn_path_class</var>;</code></pre>
+<p>The chosen <code><var style="color:slategrey;">conn_path_class</var></code> values must be in the following range: <code>0:65535</code>.</p>
+<h4 id="examples-2"><a class="header" href="#examples-2">Examples:</a></h4>
+<pre><code class="language-snort">cip_conn_path_class:10;
+</code></pre>
+<pre><code class="language-snort">cip_conn_path_class:!0;
+</code></pre>
+<h2 id="cip_instance"><a class="header" href="#cip_instance">cip_instance</a></h2>
+<p>The <code>cip_instance</code> rule option is used to match a single CIP instance value or multiple CIP instance values.</p>
+<p>This rule option takes in one argument, which is either a single instance value used with an optional comparison operator sign, or a range of instance values using one of two range operator signs. The range comparison is done by including either the <code>&lt;&gt;</code> or <code>&lt;=&gt;</code> sign and putting the minimum number the left of the sign and the maximum number to the right of it. The <code>&lt;&gt;</code> case is for an <em>exclusive</em> min-max check, while the <code>&lt;=&gt;</code> is for an <em>inclusive</em> min-max check.</p>
+<h4 id="format-3"><a class="header" href="#format-3">Format:</a></h4>
+<h5 id="single-value-comparison-3"><a class="header" href="#single-value-comparison-3">Single value comparison:</a></h5>
+<pre><code>cip_instance:[<|>|=|!|<=|>=]<var style="color:slategrey;">cip_instance</var>;</code></pre>
+<h5 id="range-comparison-3"><a class="header" href="#range-comparison-3">Range comparison:</a></h5>
+<pre><code>cip_instance:<var style="color:slategrey;">min_cip_instance</var>{<>|<=>}<var style="color:slategrey;">max_cip_instance</var>;</code></pre>
+<p>The chosen <code><var style="color:slategrey;">cip_instance</var></code> values must be in the following range: <code>0:4294967295</code>.</p>
+<h4 id="examples-3"><a class="header" href="#examples-3">Examples:</a></h4>
+<pre><code class="language-snort">cip_instance:33;
+</code></pre>
+<pre><code class="language-snort">cip_instance:!33;
+</code></pre>
+<h2 id="cip_req"><a class="header" href="#cip_req">cip_req</a></h2>
+<p>The <code>cip_req</code> rule option is used to match CIP request packets.</p>
+<p>This rule option takes no arguments.</p>
+<h4 id="format-4"><a class="header" href="#format-4">Format:</a></h4>
+<pre><code>cip_req;
+</code></pre>
+<h4 id="examples-4"><a class="header" href="#examples-4">Examples:</a></h4>
+<pre><code class="language-snort">cip_req;
+</code></pre>
+<h2 id="cip_rsp"><a class="header" href="#cip_rsp">cip_rsp</a></h2>
+<p>The <code>cip_rsp</code> rule option is used to match CIP response packets. </p>
+<p>This rule option takes no arguments.</p>
+<h4 id="format-5"><a class="header" href="#format-5">Format:</a></h4>
+<pre><code class="language-snort">cip_rsp;
+</code></pre>
+<h4 id="examples-5"><a class="header" href="#examples-5">Examples:</a></h4>
+<pre><code class="language-snort">cip_rsp;
+</code></pre>
+<h2 id="cip_service"><a class="header" href="#cip_service">cip_service</a></h2>
+<p>The <code>cip_service</code> rule option is used to match a single CIP service value or multiple CIP service values.</p>
+<p>This rule option takes in one argument, which is either a single service value used with an optional comparison operator sign, or a range of service values using one of two range operator signs. The range comparison is done by including either the <code>&lt;&gt;</code> or <code>&lt;=&gt;</code> sign and putting the minimum number the left of the sign and the maximum number to the right of it. The <code>&lt;&gt;</code> case is for an <em>exclusive</em> min-max check, while the <code>&lt;=&gt;</code> is for an <em>inclusive</em> min-max check.</p>
+<h4 id="format-6"><a class="header" href="#format-6">Format:</a></h4>
+<h5 id="single-value-comparison-4"><a class="header" href="#single-value-comparison-4">Single value comparison:</a></h5>
+<pre><code>cip_service:[<|>|=|!|<=|>=]<var style="color:slategrey;">service</var>;</code></pre>
+<h5 id="range-comparison-4"><a class="header" href="#range-comparison-4">Range comparison:</a></h5>
+<pre><code>cip_service:<var style="color:slategrey;">min_service</var>{<>|<=>}<var style="color:slategrey;">max_service</var>;</code></pre>
+<blockquote>
+<p>Note: The chosen <code><var style="color:slategrey;">service</var></code> values must be in the following range: <code>0:127</code>.</p>
+</blockquote>
+<h4 id="examples-6"><a class="header" href="#examples-6">Examples:</a></h4>
+<pre><code class="language-snort">cip_service:10;
+</code></pre>
+<pre><code class="language-snort">cip_service:127;
+</code></pre>
+<h2 id="cip_status"><a class="header" href="#cip_status">cip_status</a></h2>
+<p>The <code>cip_status</code> rule option is used to match a single CIP status value or multiple CIP status values.</p>
+<p>This rule option takes in one argument, which is either a single status value used with an optional comparison operator sign, or a range of status values using one of two range operator signs. The range comparison is done by including either the <code>&lt;&gt;</code> or <code>&lt;=&gt;</code> sign and putting the minimum number the left of the sign and the maximum number to the right of it. The <code>&lt;&gt;</code> case is for an <em>exclusive</em> min-max check, while the <code>&lt;=&gt;</code> is for an <em>inclusive</em> min-max check.</p>
+<h4 id="format-7"><a class="header" href="#format-7">Format:</a></h4>
+<h5 id="single-value-comparison-5"><a class="header" href="#single-value-comparison-5">Single value comparison:</a></h5>
+<pre><code>cip_status:[<|>|=|!|<=|>=]<var style="color:slategrey;">status</var>;</code></pre>
+<h5 id="range-comparison-5"><a class="header" href="#range-comparison-5">Range comparison:</a></h5>
+<pre><code>cip_status:<var style="color:slategrey;">min_status</var>{<>|<=>}<var style="color:slategrey;">max_status</var>;</code></pre>
+<blockquote>
+<p>Note: The chosen <code><var style="color:slategrey;">status</var></code> values must be in the following range: <code>0:255</code>.</p>
+</blockquote>
+<h4 id="examples-7"><a class="header" href="#examples-7">Examples:</a></h4>
+<pre><code class="language-snort">cip_status:0;
+</code></pre>
+<pre><code class="language-snort">cip_status:!0;
+</code></pre>
+<h2 id="enip_command"><a class="header" href="#enip_command">enip_command</a></h2>
+<p>The <code>enip_command</code> rule option is used to match a single ENIP command value or multiple ENIP command values.</p>
+<p>This rule option takes in one argument, which is either a single ENIP command value used with an optional comparison operator sign, or a range of ENIP command values using one of two range operator signs. The range comparison is done by including either the <code>&lt;&gt;</code> or <code>&lt;=&gt;</code> sign and putting the minimum number the left of the sign and the maximum number to the right of it. The <code>&lt;&gt;</code> case is for an <em>exclusive</em> min-max check, while the <code>&lt;=&gt;</code> is for an <em>inclusive</em> min-max check.</p>
+<h4 id="format-8"><a class="header" href="#format-8">Format:</a></h4>
+<h5 id="single-value-comparison-6"><a class="header" href="#single-value-comparison-6">Single value comparison:</a></h5>
+<pre><code>enip_command:[<|>|=|!|<=|>=]<var style="color:slategrey;">enip_command</var>;</code></pre>
+<h5 id="range-comparison-6"><a class="header" href="#range-comparison-6">Range comparison:</a></h5>
+<pre><code>enip_command:<var style="color:slategrey;">min_enip_command</var>{<>|<=>}<var style="color:slategrey;">max_enip_command</var>;</code></pre>
+<blockquote>
+<p>Note: The chosen <code><var style="color:slategrey;">command</var></code> values must be in the following range: <code>0:65535</code>.</p>
+</blockquote>
+<h4 id="examples-8"><a class="header" href="#examples-8">Examples:</a></h4>
+<pre><code class="language-snort">enip_command:5&lt;&gt;100;
+</code></pre>
+<pre><code class="language-snort">enip_command:&lt;7;
+</code></pre>
+<h2 id="enip_req"><a class="header" href="#enip_req">enip_req</a></h2>
+<p>The <code>enip_req</code> rule option is used to match ENIP response packets.</p>
+<p>This rule option takes no arguments.</p>
+<h4 id="format-9"><a class="header" href="#format-9">Format:</a></h4>
+<pre><code>enip_req;
+</code></pre>
+<h4 id="examples-9"><a class="header" href="#examples-9">Examples:</a></h4>
+<pre><code class="language-snort">enip_req;
+</code></pre>
+<h2 id="enip_rsp"><a class="header" href="#enip_rsp">enip_rsp</a></h2>
+<p>The <code>enip_rsp</code> rule option is used to match ENIP response packets.</p>
+<p>This rule option takes no arguments.</p>
+<h4 id="format-10"><a class="header" href="#format-10">Format:</a></h4>
+<pre><code>enip_rsp;
+</code></pre>
+<h4 id="examples-10"><a class="header" href="#examples-10">Examples:</a></h4>
+<pre><code class="language-snort">enip_rsp;
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="dnp3.htm" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="iec104.htm" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="dnp3.htm" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="iec104.htm" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+        
+
+        
+
+        
+
+        
+
+        
+        <script src="../../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    <script defer="" src="../../../beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"847db1606a37d97b","b":1,"version":"2024.1.0","token":"259dc4eadf5b43fbbc95b1d26ba39d7c"}' crossorigin="anonymous"></script>
+</body>
+</html>
